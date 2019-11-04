@@ -11,7 +11,7 @@
         appId: "1:698450547042:web:04867510b1a497c6689c3b",
         measurementId: "G-E4M8SMQP0V"
       };
-firebase.initializeApp(config);
+firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
 document.getElementById("sign").onclick= function (){
@@ -44,12 +44,13 @@ document.getElementById("sign").onclick= function (){
     const promise = auth.createUserWithEmailAndPassword(email,password);
     promise.catch(e=> console.log(e.message));
     setTimeout(function(){
-        location.replace("loginpage.html")
-    }, 2000)
-  
+        location.replace("loginpage.html");
+    }, 2000);
+    
 }
 
   
 
+}()
 
-}());
+);
