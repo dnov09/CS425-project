@@ -31,6 +31,8 @@ button {
   text-align: center;
   font-size: 70px;
   justify-content: center;
+  padding: 20px;
+  padding-bottom: 0px;
 }
 button:hover {
   opacity: 1;
