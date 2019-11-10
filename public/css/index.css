@@ -36,3 +36,8 @@ button:hover {
   opacity: 1;
   right: 0;
 }
+a{
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-decoration: none;
+}
