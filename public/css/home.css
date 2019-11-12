@@ -1,0 +1,89 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+
+  max-width: 980px;
+  color: #ccc;
+  font-family: "Lato", serif;
+  background-color: #000;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: subpixel-antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#content {
+  position: absolute;
+  max-width: 980px;
+  padding: 40px 20px;
+}
+button {
+  background-color: #000;
+  color: beige;
+  font-family: inherit;
+  text-align: center;
+  font-size: 70px;
+  justify-content: center;
+}
+button:hover {
+  opacity: 1;
+  right: 0;
+}
+a{
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-decoration: none;
+}
+.imgcontainer{
+  position:absolute;
+  left:0;
+  top:0;
+}
+* {
+  box-sizing: border-box;
+}
+
+form.example input[type=text] {
+  position: relative;
+  padding: 15px;
+  font-size: 18px;
+  border: 1px solid grey;
+  float: center;
+  width: 75%;
+  background: white;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+form.example button {
+  position: relative;
+  float: right;
+  width: 25%;
+  padding: 15px;
+  background: brown;
+  color: white;
+  font-size: 18px;
+  border: 1px solid grey;
+  border-top-right-radius:25px;
+  border-bottom-right-radius: 25px;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
