@@ -87,3 +87,10 @@ form.example::after {
   clear: both;
   display: table;
 }
+
+.cart{
+  position: absolute;
+  top:0;
+  right: 0;
+  
+}
