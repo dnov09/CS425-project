@@ -6,9 +6,13 @@ The goal is to build an online grocery store that operates in the US. The grocer
 ### 1 Project Timeline
 
 Project has three deliverables:
-- ER-Model
-- Relational Schema
-- Application 
+- [x] ER-Model
+
+![ER Model](/home/dnov/Desktop/CS425/CS425-project/diagrams/er_model.png)
+
+- [ ] Relational Schema
+
+- [ ] Application 
 
 ### Requirements
 
