@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "database-20325"
+    "default": "database-20325",
+    "d3": "database-20325"
   }
 }
