@@ -3,6 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="css/signin.css" rel="stylesheet" />
+    <script src="login.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
   </head>
   <body>
@@ -12,11 +13,11 @@
       </div>
 
       <div class="container">
-        <label for="uname"><b>E-mail</b></label>
+        <label for="uname"><b>Username</b></label>
         <input
           type="text"
           id="name"
-          placeholder="Enter Email"
+          placeholder="Enter Username"
           name="uname"
           required
         />
@@ -30,7 +31,7 @@
           required
         />
 
-        <button type="button" id="sign">Login</button>
+        <button type="button" id="sign" onclick="validate()">Login</button>
         <label>
           <input type="checkbox" checked="checked" name="remember" /> Remember
           me
@@ -52,6 +53,6 @@
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-firestore.js"></script>
 
     <!-- <script src="/__/firebase/init.js"></script> -->
-    <script src="login.js"></script>
+    
   </body>
 </html>
