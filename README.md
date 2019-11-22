@@ -10,7 +10,7 @@ Project has three deliverables:
 
 ![ER Model](diagrams/er_model.png)
 
-- [ ] Relational Schema
+- [x] Relational Schema
 
 - [ ] Application 
 
