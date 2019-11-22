@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome to Firebase Hosting</title>
+    <link href="css/cart.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/7.2.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/7.2.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/7.2.0/firebase-database.js"></script>
+    <script defer src="/__/firebase/7.2.0/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/7.2.0/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $("button").click(function() {
+          $("#div1").fadeIn();
+          $("#div2").fadeIn("slow");
+          $("#div3").fadeIn(3000);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="imgcontainer">
+      <img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150" align= "left"/>
+    </div>
+    <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
+      <input type="text" placeholder="Search for products" name="search">
+      <button type="submit"><i class="fa fa-search"></i></button>
+    </form>
+    <section class="items">
+    <div class="col-25">
+      <div class="container">
+        <h4>Cart
+          <span class="price" style="color:black">
+            <i class="fa fa-shopping-cart"></i>
+            <b>4</b>
+          </span>
+        </h4>
+        <p><a href="#">Product 1</a> <span class="price">$15</span></p>
+        <p><a href="#">Product 2</a> <span class="price">$5</span></p>
+        <p><a href="#">Product 3</a> <span class="price">$8</span></p>
+        <p><a href="#">Product 4</a> <span class="price">$2</span></p>
+        <hr>
+        <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+        <input type="submit" value="Continue to checkout" class="btn">
+      </div>
+    </div>
+</section>
+</body>
+</html>
