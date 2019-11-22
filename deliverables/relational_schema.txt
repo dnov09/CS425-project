@@ -41,7 +41,7 @@ CREATE TABLE product(
 
 CREATE TABLE stock(
     p_id serial PRIMARY KEY,
-    quantity INT CHECK(quantity >= 0),
+    quantity INTEGER CHECK(quantity >= 0),
 
     FOREIGN KEY (p_id) REFERENCES product
 );
@@ -51,8 +51,8 @@ CREATE TABLE warehouse(
     p_id serial PRIMARY KEY,
     address_id serial,
     not_keyword_address VARCHAR(256),
-    quantity INT CHECK(quantity >= 0),
-
+    quantity INTEGER CHECK(quantity >= 0),
+    -- Foreign key constraints
     FOREIGN KEY (p_id) REFERENCES product,
     FOREIGN KEY (address_id) REFERENCES not_keyword_address
 
@@ -67,6 +67,7 @@ CREATE TABLE not_keyword_order(
     address_id serial,
     not_keyword_status VARCHAR(10),
     CHECK (not_keyword_status in('ordered', 'sent', 'received')),
+    -- Foreign key constraints
     FOREIGN KEY (c_id) REFERENCES customer,
     FOREIGN KEY (cc_id) REFERENCES ccard,
     FOREIGN KEY (address_id) REFERENCES not_keyword_address
