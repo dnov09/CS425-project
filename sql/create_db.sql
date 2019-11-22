@@ -3,18 +3,25 @@ CREATE TABLE staff(
     s_id serial PRIMARY KEY,
     first_name VARCHAR(20) NOT NULL,
     last_name VARCHAR(20) NOT NULL,
+    address_id serial,
     job_title VARCHAR(50),
-    salary NUMERIC(8,2)
+    salary NUMERIC(8,2),
+
+    FOREIGN KEY (address_id) REFERENCES not_keyword_address
 );
 
 CREATE TABLE customer(
     c_id serial PRIMARY KEY,
     first_name VARCHAR(20) NOT NULL,
     last_name VARCHAR(20) NOT NULL,
-    balance NUMERIC(8,2) CHECK (balance >= 0)
+    address_id serial,
+    balance NUMERIC(8,2) CHECK (balance >= 0),
+
+    FOREIGN KEY (address_id) REFERENCES not_keyword_address
+
 );
 
-CREATE table ccard(
+CREATE TABLE ccard(
     c_id serial PRIMARY KEY,
     cc_number VARCHAR(256),
     cc_expiration VARCHAR(256),
@@ -42,10 +49,13 @@ CREATE TABLE stock(
 CREATE TABLE warehouse(
     w_id serial PRIMARY KEY,
     p_id serial PRIMARY KEY,
-    addy VARCHAR(256),
+    address_id serial,
+    not_keyword_address VARCHAR(256),
     quantity INT CHECK(quantity >= 0),
 
-    FOREIGN KEY (p_id) REFERENCES product
+    FOREIGN KEY (p_id) REFERENCES product,
+    FOREIGN KEY (address_id) REFERENCES not_keyword_address
+
 );
 
 -- order is a keyword in SQL so we add 'not_keyword_'
@@ -53,10 +63,20 @@ CREATE TABLE not_keyword_order(
     order_id serial PRIMARY KEY,
     c_id serial,
     cc_id serial,
+    p_id serial,
+    address_id serial,
     not_keyword_status VARCHAR(10),
     CHECK (not_keyword_status in('ordered', 'sent', 'received')),
     FOREIGN KEY (c_id) REFERENCES customer,
-    FOREIGN KEY (cc_id) REFERENCES ccard
+    FOREIGN KEY (cc_id) REFERENCES ccard,
+    FOREIGN KEY (address_id) REFERENCES not_keyword_address
 );
 
 
+CREATE TABLE not_keyword_address(
+    address_id serial PRIMARY KEY,
+    street_name VARCHAR(256),
+    city VARCHAR(256),
+    not_keyword_state VARCHAR(2),
+    zipcode VARCHAR(5)
+);
