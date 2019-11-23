@@ -49,11 +49,7 @@ a{
 * {
   box-sizing: border-box;
 }
-.account{
-  position: absolute;
-  right: 100px;
-  top: 30px;
-}
+
 form.example input[type=text] {
   position: relative;
   padding: 15px;
@@ -122,7 +118,7 @@ form.example::after {
     margin-bottom: 20px;
   }
 }
-.products{
+.info{
   padding: 10px;
   margin-top: 15%;
   margin-left: 20%;
