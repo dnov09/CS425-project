@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="css/signin.css" rel="stylesheet" />
+    <script src="login.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <form>
+      <div class="imgcontainer">
+        <img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150"/>
+      </div>
+
+      <div class="container">
+        <label for="uname"><b>Create a username</b></label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter Username"
+          name="uname"
+          required
+        />
+
+        <label for="psw"><b>Create a Password</b></label>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="psw"
+          id="pswd"
+          required
+        />
+
+        <label for="uname"><b>Address (Street Address, City, State, Zipcode) </b></label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter Username"
+          name="uname"
+          required
+        />
+        <button type="button" id="sign" onclick="validate()">Login</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember" /> Remember
+          me
+        </label>
+      </div>
+
+      <!-- <div class="container" style="background-color:black">
+        <button type="button" class="cancelbtn">Cancel</button>
+      </div>
+    </form> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script> -->
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="/__/firebase/7.2.0/firebase-app.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-analytics.js"></script> -->
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-firestore.js"></script>
+
+    <!-- <script src="/__/firebase/init.js"></script> -->
+
+  </body>
+</html>
