@@ -8,7 +8,7 @@
   text-align: center;
   font-weight: bold;
   font-size: 1.5em;
-  color: #333;
+  color: rgb(255, 255, 255);
   margin-bottom: 15px;
 }
 
@@ -24,7 +24,7 @@
 
 .shop-item-price {
   flex-grow: 1;
-  color: #333;
+  color: rgb(255, 255, 255);
 }
 
 .shop-items {
@@ -36,7 +36,7 @@
 .cart-header {
   font-weight: bold;
   font-size: 1.25em;
-  color: #333;
+  color: rgb(255, 255, 255);
 }
 
 .cart-column {
@@ -59,7 +59,7 @@
 .cart-price {
   width: 20%;
   font-size: 1.2em;
-  color: #333;
+  color: rgb(255, 255, 255);
 }
 
 .cart-quantity {
@@ -67,7 +67,7 @@
 }
 
 .cart-item-title {
-  color: #333;
+  color: rgb(255, 255, 255);
   margin-left: .5em;
   font-size: 1.2em;
 }
@@ -96,7 +96,7 @@
   border-radius: 5px;
   border: 1px solid #56CCF2;
   background-color: #eee;
-  color: #333;
+  color: rgb(0, 0, 0);
   padding: 0;
   text-align: center;
   font-size: 1.2em;
@@ -104,7 +104,7 @@
 }
 
 .cart-row:last-child {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid white;
 }
 
 .cart-row:last-child .cart-column {
@@ -120,12 +120,12 @@
 .cart-total-title {
   font-weight: bold;
   font-size: 1.5em;
-  color: black;
+  color: rgb(255, 255, 255);
   margin-right: 20px;
 }
 
 .cart-total-price {
-  color: #333;
+  color: rgb(255, 255, 255);
   font-size: 1.1em;
 }
 
