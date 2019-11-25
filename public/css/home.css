@@ -29,7 +29,7 @@ button {
   color: beige;
   font-family: inherit;
   text-align: center;
-  font-size: 70px;
+  font-size: 30px;
   justify-content: center;
 }
 button:hover {
