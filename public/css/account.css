@@ -88,12 +88,7 @@ form.example::after {
   display: table;
 }
 
-.cart{
-  position: absolute;
-  top:0;
-  right: 0;
 
-}
 .column {
   float: left;
   width: 25%;
