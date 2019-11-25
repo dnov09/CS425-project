@@ -1,6 +1,6 @@
 <?php
 
-$con=mysql_connect('localhost','root','','grocerydb');
+$con=mysqli_connect('localhost','root','','grocerydb');
 
 
 if(!$con)
