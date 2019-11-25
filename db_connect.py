@@ -10,8 +10,8 @@ def connect():
             dbname="grocerydb",
             user="postgres",
             host="localhost",
-            port="5433",
-            password="november1999")
+            port="5432",
+            password="Leesimaol2$")
 
         # create a cursor
         cur = conn.cursor()
