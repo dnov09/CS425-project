@@ -214,9 +214,9 @@ COMMIT;
 
 -- ADDING PRODUCT TO DATABASE
 INSERT INTO `product` (`p_id`, `p_name`, `p_type`, `p_image`, `price`, `nutrition`, `size`) VALUES
-(0, 'Banana', 'Food', 'images/banana.jpg', '$0.50', 'images/bananainfo.jpg', 2),
-(0, 'Strawberry', 'Food', 'images/strawberry.jpg', '$0.90', 'images/strawberryinfo.jpg', 1),
-(0, 'orange', 'Food', 'images/orange.jpg', '$0.50', 'images/orangeinfo.jpg', 2),
-(0, '2% Milk', 'Drink', 'images/2milk.jpg', '$2.50', 'images/2%milkinfo.jpg', 2),
-(0, 'Whole Milk', 'Drink', 'images/wholemilk.jpg', '$2.75', 'images/wholemilkinfo.jpg', 2);
+(p_id, 'Banana', 'Food', 'images/banana.jpg', '$0.50', 'images/bananainfo.jpg', 2),
+(p_id, 'Strawberry', 'Food', 'images/strawberry.jpg', '$0.90', 'images/strawberryinfo.jpg', 1),
+(p_id, 'orange', 'Food', 'images/orange.jpg', '$0.50', 'images/orangeinfo.jpg', 2),
+(p_id, '2% Milk', 'Drink', 'images/2milk.jpg', '$2.50', 'images/2%milkinfo.jpg', 2),
+(p_id, 'Whole Milk', 'Drink', 'images/wholemilk.jpg', '$2.75', 'images/wholemilkinfo.jpg', 2);
 
