@@ -9,7 +9,9 @@ if(isset($_POST['save'])){
     $result=mysqli_query($con,$sql);
 
     if($result){
+        sleep(1.5);
         header("Location: /dashboard/home.html");
+        exit();
 
     }else{
         echo 'Failed';

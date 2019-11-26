@@ -13,7 +13,10 @@ input[type="password"] {
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
+.alerter{
 
+padding:12px 20px;
+}
 button {
   background-color: brown;
   color: white;

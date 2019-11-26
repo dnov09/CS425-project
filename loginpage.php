@@ -1,3 +1,30 @@
+<?php
+session_start();
+require_once('connection.php');
+$_SESSION['message']='';
+
+if(isset($_POST['save'])){
+  $user=mysqli_real_escape_string($con,trim($_POST['uname']));
+  $pass=mysqli_real_escape_string($con,trim($_POST['psw']));
+
+
+  $password=md5($pass);
+  $sql="select * from customer where username='".$user."' AND password='".$password."' limit 1";
+ // $sql="select * from customer where username='".$user."' limit 1";
+  $result=mysqli_query($con,$sql);
+
+  if(mysqli_num_rows($result)==1){
+      $_SESSION['message']='Log in successful';
+      sleep(1.5);
+      header("Location: /dashboard/home.html");
+      exit();
+
+  }else{
+      $_SESSION['message']='Log in Credentials Failed';
+  }
+
+}
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,11 +34,11 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
   </head>
   <body>
-    <form>
+    <form class="form" action="loginpage.php" method="POST" enctype="multipart/form-data">
       <div class="imgcontainer">
         <img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150"/>
       </div>
-
+<div class="alerter"><?=$_SESSION['message'] ?></div>
       <div class="container">
         <label for="uname"><b>Username</b></label>
         <input
@@ -31,7 +58,7 @@
           required
         />
 
-        <button type="button" id="sign" onclick="validate()">Login</button>
+        <button type="submit" id="sign" name='save'>Login</button>
         <label>
           <input type="checkbox" checked="checked" name="remember" /> Remember
           me
