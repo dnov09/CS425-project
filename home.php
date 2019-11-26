@@ -8,7 +8,7 @@ $sql="select * from product ";
  if(mysqli_num_rows($result)==5){
     while($row = $result->fetch_assoc()) {
         array_push($my_array,array($row["p_name"],$row["p_type"],$row["price"],$row["p_image"]));
-        
+
     }
     $_SESSION['products']=$my_array;
   //  echo implode(" ",$_SESSION['products'][1]);
@@ -61,10 +61,7 @@ $sql="select * from product ";
   </form>
   <div class="user">Welcome , <?=$_SESSION['username'] ?> </div>
   <div class="alerter"><?=$_SESSION['username'] ?></div>
-  <div class="staff-login">
-    <a href="staff-login.php" alt="staff-login" height="80">Staff Login</a>
-  </div>
-  
+
   <div class="account">
     <a href="account.php" alt="account" height="80">Credit-Card(+)</a>
   </div>
@@ -349,5 +346,5 @@ $sql="select * from product ";
   </section>
   </div>
 </body>
-<!-- 
+<!--
 </html> -->
