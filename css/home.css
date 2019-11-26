@@ -54,6 +54,13 @@ h1, h2{
 * {
   box-sizing: border-box;
 }
+.user{
+  position: absolute;
+  left:10em;
+  top: 20px;
+  padding:10px;
+  border-style: groove;
+}
 .staff-login{
   position: absolute;
   right: 230px;

@@ -36,6 +36,13 @@ button:hover {
   opacity: 1;
   right: 0;
 }
+.account{
+  position: absolute;
+  right: 230px;
+  top: 20px;
+  padding:10px;
+  border-style: groove;
+}
 a{
   font-family: 'Montserrat', sans-serif;
   color: white;

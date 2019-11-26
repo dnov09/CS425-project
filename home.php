@@ -59,12 +59,14 @@ $sql="select * from product ";
     <input type="text" placeholder="Search for products" name="search">
     <button type="submit"><i class="fa fa-search"></i></button>
   </form>
+  <div class="user">Welcome , <?=$_SESSION['username'] ?> </div>
   <div class="alerter"><?=$_SESSION['username'] ?></div>
   <div class="staff-login">
     <a href="staff-login.php" alt="staff-login" height="80">Staff Login</a>
   </div>
+  
   <div class="account">
-    <a href="account.php" alt="account" height="80"><?=$_SESSION['username'] ?></a>
+    <a href="account.php" alt="account" height="80">Credit-Card</a>
   </div>
   <div class="cart">
     <a href="#cart"><input type="image" src="images/cart_icon.png" alt="Logo" width="80" height="80"></a>

@@ -26,6 +26,8 @@ $sql="select * from customer where username='".$user."' limit 1";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Welcome to Firebase Hosting</title>
     <link href="css/account.css" rel="stylesheet" />
+  
+  
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- update the version number as needed -->
@@ -56,10 +58,12 @@ $sql="select * from customer where username='".$user."' limit 1";
       <input type="text" placeholder="Search for products" name="search">
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
-
+    <div class="account">
+    <a href="account.php" alt="account" height="80">Edit credit</a>
+  </div>
 
   <section class= "info">
-      <h1><center>Account Information</center></h1>
+      <h1><center>Account Information(ADD Credit Card)</center></h1>
     <form>
       <div class="imgcontainer">
         <a href="home.html"><img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150"/></a>
@@ -73,6 +77,7 @@ $sql="select * from customer where username='".$user."' limit 1";
           placeholder="Enter Username"
           name="uname"
           value=<?=$_SESSION['username'] ?>
+          readonly
           required
         />
 
@@ -83,6 +88,7 @@ $sql="select * from customer where username='".$user."' limit 1";
           placeholder="First Name"
           name="fname"
           value=<?=$_SESSION['user'][0] ?>
+          readonly
           required
         />
         <label for="uname"><b>Last Name</b></label>
@@ -92,18 +98,11 @@ $sql="select * from customer where username='".$user."' limit 1";
             placeholder="Last Name"
             name="lname"
             value=<?=$_SESSION['user'][1] ?>
+            readonly
             required
           />
-        <label for="psw"><b>Password</b></label>
-        <input
-          type="password"
-          placeholder="Enter Password"
-          name="psw"
-          id="pswd"
-          required
-        />
-
-        <label for="address"><b>Address (Street Address, City, State, Zipcode) </b></label>
+        
+        <label for="address"><b>Payment Address (Street Address, City, State, Zipcode) </b></label>
         <input
           type="text"
           id="name"
