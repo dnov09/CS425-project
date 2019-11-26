@@ -2,6 +2,7 @@
 session_start();
 require_once('connection.php');
 $user=$_SESSION['username'];
+$_SESSION['cards']=array();
 $c_id='';
 $sql="select * from customer where username='".$user."' limit 1";
 $result=mysqli_query($con,$sql);
@@ -14,7 +15,7 @@ $result=mysqli_query($con,$sql);
     //echo implode(" ",$_SESSION['user']);
  }else{
     // $_SESSION['message']='Log in Credentials Failed';
-    echo "Bros chai";
+    echo "Bros chais";
  }
 $sql="select * from ccard where c_id='".$c_id."'";
 // $sql="select * from customer where username='".$user."' limit 1";
@@ -22,13 +23,13 @@ $sql="select * from ccard where c_id='".$c_id."'";
  $my_array=array();
  if(mysqli_num_rows($result)>0){
     while($row = $result->fetch_assoc()) {
-        array_push($my_array,array($row["cc_number"],$row["cc_expiration"],$row["cvv"],$row["address"])); 
+        array_push($my_array,array($row["cc_id"],$row["cc_number"],$row["cc_expiration"],$row["cvv"],$row["address"])); 
     }
     $_SESSION['cards']=$my_array;
    
  }else{
     // $_SESSION['message']='Log in Credentials Failed';
-    echo "Bros chai";
+    echo "<h1><center>No Card on file Please add one</center></h1>";
  }
 ?>
 <!DOCTYPE html>
@@ -80,8 +81,16 @@ $sql="select * from ccard where c_id='".$c_id."'";
      size='35'
      placeholder='Address'
      name='address'
-     value=$num[3]
+     value=$num[4]
      required>";
+     
+?>
+<label for="pos" hidden><b>index </b></label>
+ <?php
+     echo "<input type='hidden'
+     name='pos'
+     value=$num[0]
+     >";
      
 ?>
 
@@ -92,7 +101,7 @@ $sql="select * from ccard where c_id='".$c_id."'";
      size='35'
      placeholder='Credit Card Number'
      name='cnumb'
-     value=$num[0]
+     value=$num[1]
      required>";
      
 ?>
@@ -104,7 +113,7 @@ $sql="select * from ccard where c_id='".$c_id."'";
           id='expiration'
           placeholder='mm/yy'
           name='expiration'
-          value=$num[1]
+          value=$num[2]
           required
         >";
         ?>
@@ -115,13 +124,13 @@ $sql="select * from ccard where c_id='".$c_id."'";
           id='cvv'
           placeholder='cvv'
           name='cvv'
-          value=$num[2]
+          value=$num[3]
           required
         >";
         ?> 
         <button type="submit" id="save_changes" name="changes">Save changes</button>
         <button type="submit" id="save_changes" name="delete">Delete</button>
-       
+        </form>
       </div>
       <br>
       

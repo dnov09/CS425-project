@@ -3,7 +3,7 @@
 session_start();
 require_once('connection.php');
 $user=$_SESSION['username'];
-
+unset($_SESSION['cards']);
 $sql="select * from customer where username='".$user."' limit 1";
  $result=mysqli_query($con,$sql);
 
@@ -61,7 +61,7 @@ $sql="select * from customer where username='".$user."' limit 1";
       <h1><center>Account Information(ADD Credit Card)</center></h1>
     <form class="form" action="test.php" method="POST" enctype="multipart/form-data">
       <div class="imgcontainer">
-        <a href="home.html"><img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150"/></a>
+        <a href="home.php"><img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150"/></a>
       </div>
 
       <div class="container">
