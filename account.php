@@ -10,7 +10,7 @@ $sql="select * from customer where username='".$user."' limit 1";
  if(mysqli_num_rows($result)==1){
     while($row = $result->fetch_assoc()) {
         $my_array=array($row["first"],$row["last"],str_replace(' ', '',$row["address"]));
-        
+
     }
     $_SESSION['user']=$my_array;
     //echo implode(" ",$_SESSION['user']);
@@ -26,8 +26,8 @@ $sql="select * from customer where username='".$user."' limit 1";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Welcome to Firebase Hosting</title>
     <link href="css/account.css" rel="stylesheet" />
-  
-  
+
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- update the version number as needed -->
@@ -52,7 +52,7 @@ $sql="select * from customer where username='".$user."' limit 1";
     </script>
   </head>
   <body>
-  
+
     <div class="account">
     <a href="editcredit.php" alt="account" height="80">Edit credit</a>
   </div>
@@ -96,7 +96,7 @@ $sql="select * from customer where username='".$user."' limit 1";
             readonly
             required
           />
-        
+
         <label for="address"><b>Payment Address (Street Address, City, State, Zipcode) </b></label>
         <input
           type="text"
@@ -132,7 +132,7 @@ $sql="select * from customer where username='".$user."' limit 1";
           name="cvv"
           required
         />
-        <button type="submit" id="save_changes" name="changes">Save changes</button>
+        <a href="account.html"><button type="submit" id="save_changes" name="changes">Save changes</button></a>
 
       </div>
 </section>

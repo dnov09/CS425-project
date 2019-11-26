@@ -23,13 +23,13 @@ $sql="select * from ccard where c_id='".$c_id."'";
  $my_array=array();
  if(mysqli_num_rows($result)>0){
     while($row = $result->fetch_assoc()) {
-        array_push($my_array,array($row["cc_id"],$row["cc_number"],$row["cc_expiration"],$row["cvv"],$row["address"])); 
+        array_push($my_array,array($row["cc_id"],$row["cc_number"],$row["cc_expiration"],$row["cvv"],$row["address"]));
     }
     $_SESSION['cards']=$my_array;
-   
+
  }else{
     // $_SESSION['message']='Log in Credentials Failed';
-    echo "<h1><center>No Card on file Please add one</center></h1>";
+    echo "<h2><center>No Card on file Please add one</center></h2>";
  }
 ?>
 <!DOCTYPE html>
@@ -39,8 +39,8 @@ $sql="select * from ccard where c_id='".$c_id."'";
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Welcome to Firebase Hosting</title>
     <link href="css/account.css" rel="stylesheet" />
-  
-  
+
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- update the version number as needed -->
@@ -65,7 +65,7 @@ $sql="select * from ccard where c_id='".$c_id."'";
     </script>
   </head>
   <body>
-   
+
   <?php foreach ($_SESSION['cards'] as $num) : ?>
   <section class= "info">
       <h1><center>Edit or Delete Cards</center></h1>
@@ -73,7 +73,7 @@ $sql="select * from ccard where c_id='".$c_id."'";
       <div class="imgcontainer">
         <a href="home.php"><img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150"/></a>
       </div>
-      
+
         <label for="address"><b>Payment Address (Street Address, City, State, Zipcode) </b></label>
         <?php
      echo "<input type='text'
@@ -83,7 +83,7 @@ $sql="select * from ccard where c_id='".$c_id."'";
      name='address'
      value=$num[4]
      required>";
-     
+
 ?>
 <label for="pos" hidden><b>index </b></label>
  <?php
@@ -91,7 +91,7 @@ $sql="select * from ccard where c_id='".$c_id."'";
      name='pos'
      value=$num[0]
      >";
-     
+
 ?>
 
         <label for="ccardnum"><b>Credit card number</b></label>
@@ -103,11 +103,11 @@ $sql="select * from ccard where c_id='".$c_id."'";
      name='cnumb'
      value=$num[1]
      required>";
-     
+
 ?>
 
         <label for="expiration"><b>Expiration date(mm/yy) </b></label>
-        <?php  
+        <?php
         echo "<input
           type='text'
           id='expiration'
@@ -118,7 +118,7 @@ $sql="select * from ccard where c_id='".$c_id."'";
         >";
         ?>
         <label for="cvv"><b>CVV </b></label>
-        <?php 
+        <?php
         echo  "<input
           type='text'
           id='cvv'
@@ -127,13 +127,13 @@ $sql="select * from ccard where c_id='".$c_id."'";
           value=$num[3]
           required
         >";
-        ?> 
+        ?>
         <button type="submit" id="save_changes" name="changes">Save changes</button>
         <button type="submit" id="save_changes" name="delete">Delete</button>
         </form>
       </div>
       <br>
-      
+
 </section>
 <?php endforeach ?>
   </body>
