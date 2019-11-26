@@ -66,7 +66,7 @@ $sql="select * from product ";
   </div>
   
   <div class="account">
-    <a href="account.php" alt="account" height="80">Credit-Card</a>
+    <a href="account.php" alt="account" height="80">Credit-Card(+)</a>
   </div>
   <div class="cart">
     <a href="#cart"><input type="image" src="images/cart_icon.png" alt="Logo" width="80" height="80"></a>

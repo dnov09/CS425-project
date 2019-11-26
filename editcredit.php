@@ -1,19 +1,31 @@
-
 <?php
 session_start();
 require_once('connection.php');
 $user=$_SESSION['username'];
-
+$c_id='';
 $sql="select * from customer where username='".$user."' limit 1";
- $result=mysqli_query($con,$sql);
+$result=mysqli_query($con,$sql);
 
  if(mysqli_num_rows($result)==1){
     while($row = $result->fetch_assoc()) {
-        $my_array=array($row["first"],$row["last"],str_replace(' ', '',$row["address"]));
-        
+        $c_id=$row["c_id"];
     }
-    $_SESSION['user']=$my_array;
+    //echo $c_id;
     //echo implode(" ",$_SESSION['user']);
+ }else{
+    // $_SESSION['message']='Log in Credentials Failed';
+    echo "Bros chai";
+ }
+$sql="select * from ccard where c_id='".$c_id."'";
+// $sql="select * from customer where username='".$user."' limit 1";
+ $result=mysqli_query($con,$sql);
+ $my_array=array();
+ if(mysqli_num_rows($result)>0){
+    while($row = $result->fetch_assoc()) {
+        array_push($my_array,array($row["cc_number"],$row["cc_expiration"],$row["cvv"],$row["address"])); 
+    }
+    $_SESSION['cards']=$my_array;
+   
  }else{
     // $_SESSION['message']='Log in Credentials Failed';
     echo "Bros chai";
@@ -52,89 +64,68 @@ $sql="select * from customer where username='".$user."' limit 1";
     </script>
   </head>
   <body>
-  
-    <div class="account">
-    <a href="editcredit.php" alt="account" height="80">Edit credit</a>
-  </div>
-
+   
+  <?php foreach ($_SESSION['cards'] as $num) : ?>
   <section class= "info">
-      <h1><center>Account Information(ADD Credit Card)</center></h1>
-    <form class="form" action="test.php" method="POST" enctype="multipart/form-data">
+      <h1><center>Edit or Delete Cards</center></h1>
+    <form class="form" action="credittest.php" method="POST" enctype="multipart/form-data">
       <div class="imgcontainer">
-        <a href="home.html"><img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150"/></a>
+        <a href="home.php"><img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150"/></a>
       </div>
-
-      <div class="container">
-        <label for="uname"><b>Username</b></label>
-        <input
-          type="text"
-          id="name"
-          placeholder="Enter Username"
-          name="uname"
-          value=<?=$_SESSION['username'] ?>
-          readonly
-          required
-        />
-
-        <label for="fname"><b>First Name</b></label>
-        <input
-          type="text"
-          id="fname"
-          placeholder="First Name"
-          name="fname"
-          value=<?=$_SESSION['user'][0] ?>
-          readonly
-          required
-        />
-        <label for="uname"><b>Last Name</b></label>
-          <input
-            type="text"
-            id="lname"
-            placeholder="Last Name"
-            name="lname"
-            value=<?=$_SESSION['user'][1] ?>
-            readonly
-            required
-          />
-        
+      
         <label for="address"><b>Payment Address (Street Address, City, State, Zipcode) </b></label>
-        <input
-          type="text"
-          id="name"
-          size="35"
-          placeholder="Address"
-          name="address"
-          value=<?=$_SESSION['user'][2] ?>
-          required
-        />
+        <?php
+     echo "<input type='text'
+     id='address'
+     size='35'
+     placeholder='Address'
+     name='address'
+     value=$num[3]
+     required>";
+     
+?>
 
         <label for="ccardnum"><b>Credit card number</b></label>
-        <input
-          type="text"
-          id="name"
-          placeholder="Credit card number"
-          name="cnumb"
-          required
-        />
-        <label for="expiration"><b>Expiration date(mm/yy) </b></label>
-        <input
-          type="text"
-          id="expiration"
-          placeholder="mm/yy"
-          name="expiration"
-          required
-        />
-        <label for="cvv"><b>CVV </b></label>
-        <input
-          type="text"
-          id="cvv"
-          placeholder="cvv"
-          name="cvv"
-          required
-        />
-        <button type="submit" id="save_changes" name="changes">Save changes</button>
+        <?php
+     echo "<input type='text'
+     id='cnumb'
+     size='35'
+     placeholder='Credit Card Number'
+     name='cnumb'
+     value=$num[0]
+     required>";
+     
+?>
 
+        <label for="expiration"><b>Expiration date(mm/yy) </b></label>
+        <?php  
+        echo "<input
+          type='text'
+          id='expiration'
+          placeholder='mm/yy'
+          name='expiration'
+          value=$num[1]
+          required
+        >";
+        ?>
+        <label for="cvv"><b>CVV </b></label>
+        <?php 
+        echo  "<input
+          type='text'
+          id='cvv'
+          placeholder='cvv'
+          name='cvv'
+          value=$num[2]
+          required
+        >";
+        ?> 
+        <button type="submit" id="save_changes" name="changes">Save changes</button>
+        <button type="submit" id="save_changes" name="delete">Delete</button>
+       
       </div>
+      <br>
+      
 </section>
+<?php endforeach ?>
   </body>
 </html>
