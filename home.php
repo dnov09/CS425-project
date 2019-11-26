@@ -1,5 +1,21 @@
 <?php
 session_start();
+require_once('connection.php');
+$sql="select * from product ";
+// $sql="select * from customer where username='".$user."' limit 1";
+ $result=mysqli_query($con,$sql);
+ $my_array=array();
+ if(mysqli_num_rows($result)==5){
+    while($row = $result->fetch_assoc()) {
+        array_push($my_array,array($row["p_name"],$row["p_type"],$row["price"],$row["p_image"]));
+        
+    }
+    $_SESSION['products']=$my_array;
+  //  echo implode(" ",$_SESSION['products'][1]);
+ }else{
+    // $_SESSION['message']='Log in Credentials Failed';
+    echo "Bros chai";
+ }
 ?>
 <!-- <!DOCTYPE html>
 <html>
@@ -63,10 +79,10 @@ session_start();
       <div class="column">
         <div class="card">
           <a class="nutrition" href="images/bananainfo.jpg">
-            <img src="images/banana.jpg" class="pimage" alt="Banana" width="80" height="80"></a>
-          <h1 class="pname">Banana</h1>
-          <h2 class="food">Type: Food</h2>
-          <p class="price">$0.50</p>
+            <img src=<?=$_SESSION['products'][0][3] ?> class="pimage" alt="Banana" width="80" height="80"></a>
+          <h1 class="pname"><?=$_SESSION['products'][0][0] ?></h1>
+          <h2 class="food">Type: <?=$_SESSION['products'][0][1] ?></h2>
+          <p class="price"><?=$_SESSION['products'][0][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
         </div>
       </div>
@@ -86,11 +102,11 @@ session_start();
       <div class="column">
         <div class="card">
           <a class="nutrition" href="images/strawberryinfo.jpg">
-            <img src="images/strawberry.jpg" class="pimage" alt="Strawberry" width="80" height="80">
+            <img src=<?=$_SESSION['products'][1][3] ?> class="pimage" alt="Strawberry" width="80" height="80">
           </a>
-          <h1 class="pname">Strawberry</h1>
-          <h2 class="food">Type: Food</h2>
-          <p class="price">$0.90</p>
+          <h1 class="pname"><?=$_SESSION['products'][1][0] ?></h1>
+          <h2 class="food">Type: <?=$_SESSION['products'][1][1] ?></h2>
+          <p class="price"><?=$_SESSION['products'][1][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
         </div>
       </div>
@@ -98,11 +114,11 @@ session_start();
       <div class="column">
         <div class="card">
           <a class="nutrition" href="images/orangeinfo.jpg">
-            <img src="images/orange.jpg" class="pimage" alt="Orange" width="80" height="80">
+            <img src=<?=$_SESSION['products'][2][3] ?> class="pimage" alt="Orange" width="80" height="80">
           </a>
-          <h1 class="pname">Orange</h1>
-          <h2 class="food">Type: Food</h2>
-          <p class="price">$0.50</p>
+          <h1 class="pname"><?=$_SESSION['products'][2][0] ?></h1>
+          <h2 class="food">Type: <?=$_SESSION['products'][2][1] ?></h2>
+          <p class="price"><?=$_SESSION['products'][2][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
         </div>
       </div>
@@ -114,11 +130,11 @@ session_start();
       <div class="column">
         <div class="card">
           <a class="nutrition" href="images/2%milkinfo.jpg">
-            <img src="images/2milk.jpg" class="pimage" alt="2% Milk" width="80" height="80">
+            <img src=<?=$_SESSION['products'][3][3] ?> class="pimage" alt="2% Milk" width="80" height="80">
           </a>
-          <h1 class="pname">2% <br> Milk</h1>
-          <h2 class="drink">Type: Drink</h2>
-          <p class="price">$2.50</p>
+          <h1 class="pname"><?=$_SESSION['products'][3][0] ?></h1>
+          <h2 class="food">Type: <?=$_SESSION['products'][3][1] ?></h2>
+          <p class="price"><?=$_SESSION['products'][3][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
         </div>
       </div>
@@ -126,11 +142,11 @@ session_start();
       <div class="column">
         <div class="card">
           <a class="nutrition" href="images/wholemilkinfo.jpg">
-            <img src="images/wholemilk.jpg" class="pimage" alt="wholemilk" width="80" height="80">
+            <img src=<?=$_SESSION['products'][4][3] ?> class="pimage" alt="wholemilk" width="80" height="80">
           </a>
-          <h1 class="pname">Whole <br>Milk</h1>
-          <h2 class="drink">Type: Drink</h2>
-          <p class="price">$2.75</p>
+          <h1 class="pname"><?=$_SESSION['products'][4][0] ?></h1>
+          <h2 class="food">Type: <?=$_SESSION['products'][4][1] ?></h2>
+          <p class="price"><?=$_SESSION['products'][4][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
         </div>
       </div>
