@@ -79,11 +79,14 @@
 }
 
 .btn-danger {
+  background-color: brown;
   color: white;
-  background-color: #EB5757;
+  padding: 14px 20px;
+  font-size: 1.5em;
+  margin: 8px 0;
   border: none;
-  border-radius: .3em;
-  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
 }
 
 .btn-danger:hover {
@@ -129,8 +132,14 @@
   font-size: 1.1em;
 }
 
-.btn-purchase {
-  display: block;
-  margin: 40px auto 80px auto;
-  font-size: 1.75em;
+
+.btn-checkout{
+  background-color: brown;
+  color: white;
+  padding: 14px 20px;
+  font-size: 1.5em;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
 }

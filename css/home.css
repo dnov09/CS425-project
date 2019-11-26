@@ -165,3 +165,13 @@ form.example::after {
   opacity: 0.7;
 }
 
+.container-content-section{
+  padding: 10px;
+  margin-top: 15%;
+  margin-left: 20%;
+  margin-right: 10%;
+  border-color: white;
+  border-style: dashed;
+  border-radius: 5px;
+  font-family: 'Montserrat', sans-serif;
+}
