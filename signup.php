@@ -1,6 +1,34 @@
-<!DOCTYPE html>
+<?php
+session_start();
+$_SESSION['username']='';
+require_once('connection.php');
+if(isset($_POST['save'])){
+    $user=mysqli_real_escape_string($con,trim($_POST['uname']));
+    $pass=mysqli_real_escape_string($con,trim($_POST['psw']));
+    $address=mysqli_real_escape_string($con,trim($_POST['address']));
+    //list($month, $day, $year) = preg_split('[,]', $address);
+    //echo "Month: $month; Day: $day; Year: $year<br />\n";
+    $password=md5($pass);
+    $sql="insert into customer (username,address,pword) values('$user','$address','$password')";
+    $result=mysqli_query($con,$sql);
+
+    if($result){
+      $_SESSION['username']=$user;
+        sleep(1.5);
+        header("Location: /dashboard/home.html");
+        exit();
+
+    }else{
+        echo 'Failed';
+    }
+
+}
+
+?>
+
+<!-- <!DOCTYPE html>
 <html>
-  <head>
+  <head> -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -9,7 +37,7 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
   </head>
   <body>
-    <form class="form" action="sign_up.php" method="POST" enctype="multipart/form-data">
+    <form class="form" action="signup.php" method="POST" enctype="multipart/form-data">
       <div class="imgcontainer">
         <img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150"/>
       </div>
@@ -69,7 +97,7 @@
         <button type="button" class="cancelbtn">Cancel</button>
       </div>
 
-    <!-- <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
 
     <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
     <script src="/__/firebase/7.2.0/firebase-app.js"></script>
@@ -82,4 +110,4 @@
     <!-- <script src="/__/firebase/init.js"></script> -->
 
   </body>
-  </html>
+  <!-- </html> -->
