@@ -26,9 +26,9 @@ if(isset($_POST['save'])){
 
 ?>
 
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-  <head> -->
+  <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -38,10 +38,9 @@ if(isset($_POST['save'])){
   </head>
   <body>
     <form class="form" action="signup.php" method="POST" enctype="multipart/form-data">
-      <div class="imgcontainer">
+    <div class="imgcontainer">
         <img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150"/>
       </div>
-
       <div class="container">
         <label for="uname"><b>Create a username</b></label>
         <input
@@ -51,6 +50,7 @@ if(isset($_POST['save'])){
           name="uname"
           required
         />
+    
 
           <label for="fame"><b>Enter First Name</b></label>
           <input
@@ -93,21 +93,24 @@ if(isset($_POST['save'])){
         </label>
       </div>
     </form>
+    </body>
+    </html>
       <!-- <div class="container" style="background-color:black">
         <button type="button" class="cancelbtn">Cancel</button>
       </div>
 
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
 
-    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    If you enabled Analytics in your project, add the Firebase SDK for Analytics
     <script src="/__/firebase/7.2.0/firebase-app.js"></script>
-    <!-- <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-analytics.js"></script> -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-analytics.js"></script>
 
-    <!-- Add Firebase products that you want to use -->
+   
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-firestore.js"></script>
 
-    <!-- <script src="/__/firebase/init.js"></script> -->
+  
 
-  </body>
-  <!-- </html> -->
+  
+
+  
