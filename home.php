@@ -55,9 +55,9 @@ $sql="select * from product ";
   <div class="imgcontainer">
     <img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150" align="left" />
   </div>
-  <form class="example" action="action_page.php" style="margin:auto;max-width:300px">
+  <form class="example" action="action_page.php" method="GET" style="margin:auto;max-width:300px">
     <input type="text" placeholder="Search for products" name="search">
-    <button type="submit" name="search"><i class="fa fa-search"></i></button>
+    <button type="submit" name="searcher"><i class="fa fa-search"></i></button>
   </form>
   <div class="user">Welcome , <?=$_SESSION['username'] ?> </div>
   <div class="alerter"><?=$_SESSION['username'] ?></div>
