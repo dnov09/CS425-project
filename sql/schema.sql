@@ -14,12 +14,8 @@ CREATE TABLE staff
 CREATE TABLE customer
 (
     c_id serial PRIMARY KEY,
-    first_name VARCHAR(20) NOT NULL,
-    last_name VARCHAR(20) NOT NULL,
-    address_id serial,
-    balance NUMERIC(8,2) CHECK (balance >= 0),
-
-    FOREIGN KEY (address_id) REFERENCES not_keyword_address
+    username VARCHAR(20) NOT NULL,
+    balance NUMERIC(8,2) CHECK (balance >= 0)
 
 );
 
