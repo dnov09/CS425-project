@@ -1,3 +1,24 @@
+
+<?php
+session_start();
+require_once('connection.php');
+$user=$_SESSION['username'];
+
+$sql="select * from customer where username='".$user."' limit 1";
+ $result=mysqli_query($con,$sql);
+
+ if(mysqli_num_rows($result)==1){
+    while($row = $result->fetch_assoc()) {
+        $my_array=array($row["first"],$row["last"],str_replace(' ', '',$row["address"]));
+        
+    }
+    $_SESSION['user']=$my_array;
+    //echo implode(" ",$_SESSION['user']);
+ }else{
+    // $_SESSION['message']='Log in Credentials Failed';
+    echo "Bros chai";
+ }
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -51,6 +72,7 @@
           id="name"
           placeholder="Enter Username"
           name="uname"
+          value=<?=$_SESSION['username'] ?>
           required
         />
 
@@ -60,6 +82,7 @@
           id="fname"
           placeholder="First Name"
           name="fname"
+          value=<?=$_SESSION['user'][0] ?>
           required
         />
         <label for="uname"><b>Last Name</b></label>
@@ -68,6 +91,7 @@
             id="lname"
             placeholder="Last Name"
             name="lname"
+            value=<?=$_SESSION['user'][1] ?>
             required
           />
         <label for="psw"><b>Password</b></label>
@@ -83,8 +107,10 @@
         <input
           type="text"
           id="name"
+          size="35"
           placeholder="Address"
           name="address"
+          value=<?=$_SESSION['user'][2] ?>
           required
         />
 

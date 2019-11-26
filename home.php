@@ -64,7 +64,7 @@ $sql="select * from product ";
     <a href="staff-login.php" alt="staff-login" height="80">Staff Login</a>
   </div>
   <div class="account">
-    <a href="account.html" alt="account" height="80"><?=$_SESSION['username'] ?></a>
+    <a href="account.php" alt="account" height="80"><?=$_SESSION['username'] ?></a>
   </div>
   <div class="cart">
     <a href="#cart"><input type="image" src="images/cart_icon.png" alt="Logo" width="80" height="80"></a>
