@@ -5,17 +5,19 @@ require_once('connection.php');
 if(isset($_POST['save'])){
     $user=mysqli_real_escape_string($con,trim($_POST['uname']));
     $pass=mysqli_real_escape_string($con,trim($_POST['psw']));
+    $first=mysqli_real_escape_string($con,trim($_POST['fname']));
+    $last=mysqli_real_escape_string($con,trim($_POST['lname']));
     $address=mysqli_real_escape_string($con,trim($_POST['address']));
     //list($month, $day, $year) = preg_split('[,]', $address);
     //echo "Month: $month; Day: $day; Year: $year<br />\n";
     $password=md5($pass);
-    $sql="insert into customer (username,address,pword) values('$user','$address','$password')";
+    $sql="insert into customer (username,address,pword,first,last) values('$user','$address','$password','$first','$last')";
     $result=mysqli_query($con,$sql);
 
     if($result){
       $_SESSION['username']=$user;
         sleep(1.5);
-        header("Location: /dashboard/home.html");
+        header("Location: /dashboard/home.php");
         exit();
 
     }else{
