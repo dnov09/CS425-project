@@ -13,8 +13,9 @@ CREATE TABLE staff
 
 CREATE TABLE customer
 (
-    c_id serial PRIMARY KEY,
+    c_id int AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(20) NOT NULL,
+    pword VARCHAR(20) NOT NULL,
     balance NUMERIC(8,2) CHECK (balance >= 0)
 
 );
