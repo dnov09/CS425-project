@@ -22,43 +22,39 @@ CREATE TABLE customer
 
 CREATE TABLE ccard
 (
-    c_id serial PRIMARY KEY,
+    c_id int,
     cc_number VARCHAR(256),
     cc_expiration VARCHAR(256),
     cvv VARCHAR(3),
 
-    FOREIGN KEY (c_id) REFERENCES customer
+    FOREIGN KEY (c_id) REFERENCES customer(c_id)
 );
+
 
 CREATE TABLE product
 (
-    p_id serial PRIMARY KEY,
+    p_id int AUTO_INCREMENT PRIMARY KEY,
     p_name VARCHAR(256),
     p_type VARCHAR(256),
+    p_image VARCHAR(256),
     nutrition VARCHAR(256),
-    alcohol_cont VARCHAR (256),
-    size INT CHECK(size > 0)
+    size int CHECK(size > 0)
 );
 
 CREATE TABLE stock
 (
-    p_id serial PRIMARY KEY,
-    quantity INTEGER CHECK(quantity >= 0),
+    p_id int PRIMARY KEY,
+    quantity int CHECK(quantity >= 0),
 
-    FOREIGN KEY (p_id) REFERENCES product
+    FOREIGN KEY (p_id) REFERENCES product(p_id)
 );
 
 CREATE TABLE warehouse
 (
     w_id serial PRIMARY KEY,
-    p_id serial PRIMARY KEY,
-    address_id serial,
     not_keyword_address VARCHAR(256),
-    quantity INTEGER CHECK(quantity >= 0),
+    quantity int CHECK(quantity >= 0)
     -- Foreign key constraints
-    FOREIGN KEY (p_id) REFERENCES product,
-    FOREIGN KEY (address_id) REFERENCES not_keyword_address
-
 );
 
 -- order is a keyword in SQL so we add 'not_keyword_'

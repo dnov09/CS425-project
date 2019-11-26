@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<?php
+session_start();
+?>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
   <title>Home</title>
   <link href="css/home.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/cart.css">
@@ -40,11 +43,12 @@
     <input type="text" placeholder="Search for products" name="search">
     <button type="submit"><i class="fa fa-search"></i></button>
   </form>
+  <div class="alerter"><?=$_SESSION['username'] ?></div>
   <div class="staff-login">
-    <a href="staff-login.php" alt="staff-login" height="80">Staff login</a>
+    <a href="staff-login.php" alt="staff-login" height="80">Staff Login</a>
   </div>
   <div class="account">
-    <a href="account.html" alt="account" height="80">My Account</a>
+    <a href="account.html" alt="account" height="80"><?=$_SESSION['username'] ?></a>
   </div>
   <div class="cart">
     <a href="#cart"><input type="image" src="images/cart_icon.png" alt="Logo" width="80" height="80"></a>
@@ -327,5 +331,5 @@
   </section>
   </div>
 </body>
-
-</html>
+<!-- 
+</html> -->
