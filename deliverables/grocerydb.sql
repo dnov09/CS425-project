@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2019 at 05:57 AM
+-- Generation Time: Nov 26, 2019 at 09:23 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -30,9 +30,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `ccard` (
   `c_id` int(11) DEFAULT NULL,
-  `cc_number` varchar(256) DEFAULT NULL,
   `cc_expiration` varchar(256) DEFAULT NULL,
-  `cvv` varchar(3) DEFAULT NULL
+  `cvv` varchar(3) DEFAULT NULL,
+  `address` varchar(100) NOT NULL,
+  `cc_id` int(11) NOT NULL,
+  `cc_number` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -44,9 +46,18 @@ CREATE TABLE `ccard` (
 CREATE TABLE `customer` (
   `c_id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
+  `first` varchar(100) NOT NULL,
+  `last` varchar(100) NOT NULL,
   `pword` varchar(100) NOT NULL,
   `balance` decimal(8,2) DEFAULT NULL
 ) ;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`c_id`, `username`, `first`, `last`, `pword`, `balance`, `address`) VALUES
+(4, 'blesi', 'Bright', 'Lesi', '3272e8d867c65ce7b87d9dbeea9d6ed3', NULL, '3241 S wabash,Chicago,Illinois,60616');
 
 -- --------------------------------------------------------
 
@@ -88,6 +99,17 @@ CREATE TABLE `product` (
   `nutrition` varchar(256) DEFAULT NULL,
   `size` int(11) DEFAULT NULL
 ) ;
+
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`p_id`, `p_name`, `p_type`, `p_image`, `nutrition`, `size`, `price`) VALUES
+(1, 'Banana', 'Food', 'images/banana.jpg', 'images/bananainfo.jpg', 2, '$0.50'),
+(2, 'Strawberry', 'Food', 'images/strawberry.jpg', 'images/strawberryinfo.jpg', 1, '$0.90'),
+(3, 'orange', 'Food', 'images/orange.jpg', 'images/orangeinfo.jpg', 2, '$0.50'),
+(4, '2% Milk', 'Drink', 'images/2milk.jpg', 'images/2%milkinfo.jpg', 2, '$2.50'),
+(5, 'Whole Milk', 'Drink', 'images/wholemilk.jpg', 'images/wholemilkinfo.jpg', 2, '$2.75');
 
 -- --------------------------------------------------------
 
@@ -137,6 +159,7 @@ CREATE TABLE `warehouse` (
 -- Indexes for table `ccard`
 --
 ALTER TABLE `ccard`
+  ADD PRIMARY KEY (`cc_id`),
   ADD KEY `c_id` (`c_id`);
 
 --
@@ -160,6 +183,12 @@ ALTER TABLE `staff`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `ccard`
+--
+ALTER TABLE `ccard`
+  MODIFY `cc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `customer`
@@ -213,10 +242,5 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 -- ADDING PRODUCT TO DATABASE
-INSERT INTO `product` (`p_id`, `p_name`, `p_type`, `p_image`, `price`, `nutrition`, `size`) VALUES
-(p_id, 'Banana', 'Food', 'images/banana.jpg', '$0.50', 'images/bananainfo.jpg', 2),
-(p_id, 'Strawberry', 'Food', 'images/strawberry.jpg', '$0.90', 'images/strawberryinfo.jpg', 1),
-(p_id, 'orange', 'Food', 'images/orange.jpg', '$0.50', 'images/orangeinfo.jpg', 2),
-(p_id, '2% Milk', 'Drink', 'images/2milk.jpg', '$2.50', 'images/2%milkinfo.jpg', 2),
-(p_id, 'Whole Milk', 'Drink', 'images/wholemilk.jpg', '$2.75', 'images/wholemilkinfo.jpg', 2);
+
 
