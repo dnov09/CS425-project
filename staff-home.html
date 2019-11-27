@@ -1,0 +1,56 @@
+
+
+
+
+<title>Home</title>
+<link href="css/home.css" rel="stylesheet" />
+<link rel="stylesheet" href="css/staff-home.css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="cart.js" async></script>
+<!-- update the version number as needed -->
+<!-- <script defer src="/__/firebase/7.2.0/firebase-app.js"></script> -->
+<!-- include only the Firebase features as you need -->
+<!-- <script defer src="/__/firebase/7.2.0/firebase-auth.js"></script> -->
+<!-- <script defer src="/__/firebase/7.2.0/firebase-database.js"></script> -->
+<!-- <script defer src="/__/firebase/7.2.0/firebase-messaging.js"></script> -->
+<!-- <script defer src="/__/firebase/7.2.0/firebase-storage.js"></script> -->
+<!-- initialize the SDK after all desired features are loaded -->
+<!-- <script defer src="/__/firebase/init.js"></script> -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $("button").click(function () {
+      $("#div1").fadeIn();
+      $("#div2").fadeIn("slow");
+      $("#div3").fadeIn(3000);
+    });
+  });
+</script>
+</head>
+
+<body>
+<div class="imgcontainer">
+  <img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150" align="left" />
+</div>
+
+<div class="user">Welcome , <?=$_SESSION['username'] ?> </div>
+<div class="alerter"><?=$_SESSION['username'] ?></div>
+
+<div class="account">
+  <a href="staff-account.php" alt="account" height="80">My Account</a>
+</div>
+
+<section class="customers">
+<h2>Cutomers with active orders</h2>
+<table>
+
+  </table>
+</section>
+
+
+
+</body>
+<!--
+</html> -->
