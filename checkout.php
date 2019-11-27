@@ -1,7 +1,8 @@
 <?php
 session_start();
 require_once('connection.php');
-$query= $_GET['product'];
+$_SESSION['cartsession']=$_GET['product'];
+$query= $_SESSION['cartsession'];
 $my_array=array();
 foreach ($query as $num){
 $name=strtolower($num);
@@ -66,10 +67,10 @@ $_SESSION['cart_p']=$my_array;
     <div class="imgcontainer">
       <a href="home.html"><img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150" align= "left"/></a>
     </div>
-    <form class="example" action="/action_page.php" style="margin:auto;max-width:300px">
-      <input type="text" placeholder="Search for products" name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+    <form class="example" action="action_page.php" method="GET" style="margin:auto;max-width:300px">
+    <input type="text" placeholder="Search for products" name="search">
+    <button type="submit" name="searcher"><i class="fa fa-search"></i></button>
+  </form>
     <section class="products">
   <div class="row">
   <?php foreach ($_SESSION['cart_p'] as $num) : ?>

@@ -146,6 +146,7 @@ $query= $_GET['search'];
       <span class="cart-price cart-header cart-column">PRICE</span>
       <span class="cart-quantity cart-header cart-column">QUANTITY</span>
     </div>
+    <form action="checkout.php" method="GET" type="hidden">
     <div class="cart-items">
 
     </div>
@@ -153,7 +154,8 @@ $query= $_GET['search'];
       <strong class="cart-total-title">Total</strong>
       <span class="cart-total-price">$0</span>
     </div>
-    <a href="checkout.html"><button class="btn-checkout" type="button">Go to checkout</button></a>
+    <button class="btn-checkout" type="submit">Go to checkout</button>
+  </form>
   </section>
   </div>
 </body>
