@@ -1,11 +1,12 @@
 <?php
 session_start();
 require_once('connection.php');
+$_SESSION['products']=array();
 $sql="select * from product ";
 // $sql="select * from customer where username='".$user."' limit 1";
  $result=mysqli_query($con,$sql);
  $my_array=array();
- if(mysqli_num_rows($result)==5){
+ if(mysqli_num_rows($result)>0){
     while($row = $result->fetch_assoc()) {
         array_push($my_array,array($row["p_name"],$row["p_type"],$row["price"],$row["p_image"]));
 
@@ -143,7 +144,7 @@ $sql="select * from product ";
           <a class="nutrition" href="images/wholemilkinfo.jpg">
             <img src=<?=$_SESSION['products'][4][3] ?> class="pimage" alt="wholemilk" width="80" height="80">
           </a>
-          <h1 class="pname"><?=$_SESSION['products'][4][0] ?></h1>
+          <h1 class="pname"><?php echo $_SESSION['products'][4][0]; ?></h1>
           <h2 class="food">Type: <?=$_SESSION['products'][4][1] ?></h2>
           <p class="price"><?=$_SESSION['products'][4][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
@@ -155,7 +156,7 @@ $sql="select * from product ";
           <a class="nutrition" href="images/half&halfinfo.jpg">
             <img src="images/half&half.jpg" class="pimage" alt="Half and Half" width="80" height="80">
           </a>
-          <h1 class="pname">Half and <br>Half Milk</h1>
+          <h1 class="pname">Halfand-HalfMilk</h1>
           <h2 class="drink">Type: Drink</h2>
           <p class="price">$2.90</p>
           <button class="add-to-cart" type="button">Add to Cart</button>
@@ -167,7 +168,7 @@ $sql="select * from product ";
           <a class="nutrition" href="images/chocolatemilkinfo.jpg">
             <img src="images/chocolatemilk.jpg" class="pimage" alt="chocolatemilk" width="80" height="80">
           </a>
-          <h1 class="pname">Chocolate<br> Milk</h1>
+          <h1 class="pname">Chocolate-Milk</h1>
           <h2 class="drink">Type: Drink</h2>
           <p class="price">$3.50</p>
           <button class="add-to-cart" type="button">Add to Cart</button>
@@ -184,7 +185,7 @@ $sql="select * from product ";
           <a class="nutrition" href="images/applejuiceinfo.jpg">
             <img src="images/applejuice.jpeg" class="pimage" alt="apple juice" width="80" height="80">
           </a>
-          <h1 class="pname">Apple juice</h1>
+          <h1 class="pname">Apple-juice</h1>
           <h2 class="drink">Type: Drink</h2>
           <p class="price">$1.50</p>
           <button class="add-to-cart" type="button">Add to Cart</button>
@@ -196,7 +197,7 @@ $sql="select * from product ";
           <a class="nutrition" href="images/orangejuiceinfo.jpg">
             <img src="images/orangejuice.jpg" class="pimage" alt="orange juice" width="80" height="80">
           </a>
-          <h1 class="pname">Orange juice</h1>
+          <h1 class="pname">Orange-juice</h1>
           <h2 class="drink">Type: Drink</h2>
           <p class="price">$1.50</p>
           <button class="add-to-cart" type="button">Add to Cart</button>
@@ -208,7 +209,7 @@ $sql="select * from product ";
           <a class="nutrition" href="images/pineapplejuiceinfo.jpg">
             <img src="images/pineapplejuice.jpg" class="pimage" alt="pineapple juice" width="80" height="80">
           </a>
-          <h1 class="pname">Pineapple juice</h1>
+          <h1 class="pname">Pineapple-juice</h1>
           <h2 class="drink">Type: Drink</h2>
           <p class="price">$1.50</p>
           <button class="add-to-cart" type="button">Add to Cart</button>
@@ -220,7 +221,7 @@ $sql="select * from product ";
           <a class="nutrition" href="images/grapejuiceinfo.jpg">
             <img src="images/grapejuice.jpg" class="pimage" alt="grape juice" width="80" height="80">
           </a>
-          <h1 class="pname">Grape juice</h1>
+          <h1 class="pname">Grape-juice</h1>
           <h2 class="drink">Type: Drink</h2>
           <p class="price">$1.50</p>
           <button class="add-to-cart" type="button">Add to Cart</button>
@@ -235,7 +236,7 @@ $sql="select * from product ";
       <div class="column">
         <div class="card">
           <img src="images/whitebread.jpg" class="pimage" alt="White bread" width="80" height="80">
-          <h1 class="pname">White<br> bread</h1>
+          <h1 class="pname">White-bread</h1>
           <h2 class="food">Type: Food</h2>
           <p class="price">$2.25</p>
           <button class="add-to-cart" type="button">Add to Cart</button>
@@ -245,7 +246,7 @@ $sql="select * from product ";
       <div class="column">
         <div class="card">
           <img src="images/wheatbread.jpg" class="pimage" alt="wheatbread" width="80" height="80">
-          <h1 class="pname">Wheat<br> bread</h1>
+          <h1 class="pname">Wheat-bread</h1>
           <h2 class="food">Type: Food</h2>
           <p class="price">$2.50</p>
           <button class="add-to-cart" type="button">Add to Cart</button>
@@ -255,7 +256,7 @@ $sql="select * from product ";
       <div class="column">
         <div class="card">
           <img src="images/multigrainbread.jpg" class="pimage" alt="Multi-grain bread" width="80" height="80">
-          <h1 class="pname">Multigrain bread</h1>
+          <h1 class="pname">Multigrain-bread</h1>
           <h2 class="food">Type: Food</h2>
           <p class="price">$2.90</p>
           <button class="add-to-cart" type="button">Add to Cart</button>
@@ -265,7 +266,7 @@ $sql="select * from product ";
       <div class="column">
         <div class="card">
           <img src="images/bananabread.jpg" class="pimage" alt="bananabread" width="80" height="80">
-          <h1 class="pname">Banana<br> bread</h1>
+          <h1 class="pname">Banana-bread</h1>
           <h2 class="food">Type: Food</h2>
           <p class="price">$3.00</p>
           <button class="add-to-cart" type="button">Add to Cart</button>
@@ -335,6 +336,7 @@ $sql="select * from product ";
       <span class="cart-price cart-header cart-column">PRICE</span>
       <span class="cart-quantity cart-header cart-column">QUANTITY</span>
     </div>
+    <form action="checkout.php" method="GET" type="hidden">
     <div class="cart-items">
 
     </div>
@@ -342,7 +344,8 @@ $sql="select * from product ";
       <strong class="cart-total-title">Total</strong>
       <span class="cart-total-price">$0</span>
     </div>
-    <a href="checkout.html"><button class="btn-checkout" type="button">Go to checkout</button></a>
+    <button class="btn-checkout" type="submit">Go to checkout</button>
+  </form>
   </section>
   </div>
 </body>

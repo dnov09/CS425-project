@@ -1,3 +1,35 @@
+<?php
+session_start();
+require_once('connection.php');
+$query= $_GET['product'];
+$my_array=array();
+foreach ($query as $num){
+$name=strtolower($num);
+if(strpos($name,'-')==false){
+
+}else{
+  list($part1, $part2)=explode('-',$name);
+$name=$part1.' '.$part2;
+}
+
+$sql="select * from product where p_name='".$name."' ";
+ $result=mysqli_query($con,$sql);
+
+ if(mysqli_num_rows($result)>0){
+    while($row = $result->fetch_assoc()) {
+        array_push($my_array,array($row["p_name"],$row["p_type"],$row["price"],$row["p_image"]));
+
+    }
+    
+  //  echo implode(" ",$_SESSION['products'][1]);
+ }else{
+    // $_SESSION['message']='Log in Credentials Failed';
+    echo "Bros chai";
+ }
+}
+$_SESSION['cart_p']=$my_array;
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,16 +37,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Welcome to Firebase Hosting</title>
     <link href="css/checkout.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/cart.css">
+    <link href="css/home.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- update the version number as needed -->
+   
     <script defer src="/__/firebase/7.2.0/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
+    
     <script defer src="/__/firebase/7.2.0/firebase-auth.js"></script>
     <script defer src="/__/firebase/7.2.0/firebase-database.js"></script>
     <script defer src="/__/firebase/7.2.0/firebase-messaging.js"></script>
     <script defer src="/__/firebase/7.2.0/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
+   
     <script defer src="/__/firebase/init.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -36,7 +70,31 @@
       <input type="text" placeholder="Search for products" name="search">
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
+    <section class="products">
+  <div class="row">
+  <?php foreach ($_SESSION['cart_p'] as $num) : ?>
+   
+    <?php
+    echo " 
+    <div class='column'>
+    <div class='card'>
+    <img src=$num[3] class='pimage' alt=$num[0] width='80' height='80'></a>
+    <h1 class='pname'>$num[0]</h1>
+    <h2 class='food'>Type:$num[1] </h2>
+    <p class='price'>$num[2]</p>
+    </div>
+    <br>
+    </div>
+    
+    ";
+
+     ?>
+      <?php endforeach ?>
+      
+  </div>
+  </section>
     <section class= "checkout">
+    
     <div class="row">
       <div class="col-75">
         <div class="container">

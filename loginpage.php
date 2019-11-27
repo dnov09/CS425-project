@@ -3,7 +3,6 @@ session_start();
 require_once('connection.php');
 $_SESSION['message']='';
 $_SESSION['username']='';
-
 if(isset($_POST['save'])){
   $user=mysqli_real_escape_string($con,trim($_POST['uname']));
   $pass=mysqli_real_escape_string($con,trim($_POST['psw']));
