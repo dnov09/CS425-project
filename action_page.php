@@ -19,7 +19,7 @@ $query= $_GET['search'];
     //     header("Location: /dashboard/editcredit.php");
     //     exit();
     while($row = $result->fetch_assoc()) {
-        array_push($my_array,array($row["p_name"],$row["p_type"],$row["price"],$row["p_image"]));
+        array_push($my_array,array($row["p_name"],$row["p_type"],$row["price"],$row["p_image"],$row["nutrition"]));
     }
     $_SESSION['find']=$my_array;
     }else{
@@ -31,7 +31,7 @@ $query= $_GET['search'];
             //     header("Location: /dashboard/editcredit.php");
             //     exit();
             while($row = $result->fetch_assoc()) {
-                array_push($my_array,array($row["p_name"],$row["p_type"],$row["price"],$row["p_image"]));
+                array_push($my_array,array($row["p_name"],$row["p_type"],$row["price"],$row["p_image"],$row["nutrition"]));
             }
             $_SESSION['find']=$my_array;
             }else{
@@ -43,7 +43,7 @@ $query= $_GET['search'];
             //     header("Location: /dashboard/editcredit.php");
             //     exit();
             while($row = $result->fetch_assoc()) {
-                array_push($my_array,array($row["p_name"],$row["p_type"],$row["price"],$row["p_image"]));
+                array_push($my_array,array($row["p_name"],$row["p_type"],$row["price"],$row["p_image"],$row["nutrition"]));
             }
             $_SESSION['find']=$my_array;
             }else{
@@ -82,7 +82,7 @@ $query= $_GET['search'];
 
 <body>
   <div class="imgcontainer">
-    <img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150" align="left" />
+  <a href="home.php"><img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150"/></a>
   </div>
   <form class="example" action="action_page.php" method="GET" style="margin:auto;max-width:300px">
     <input type="text" placeholder="Search for products" name="search">
@@ -101,21 +101,24 @@ $query= $_GET['search'];
 
 
   <section class="products">
+  <div class="row">
   <?php foreach ($_SESSION['find'] as $num) : ?>
-    <div class="row">
+   
     <?php
-    echo "<div class='column'>
+    echo " 
+    <div class='column'>
     <div class='card'>
-    <a class='nutrition' href='images/bananainfo.jpg'>
+    <a class='nutrition' href=$num[4]>
     <img src=$num[3] class='pimage' alt=$num[0] width='80' height='80'></a>
     <h1 class='pname'>$num[0]</h1>
     <h2 class='food'>Type:$num[1] </h2>
     <p class='price'>$num[2]</p>
     <button class='add-to-cart' type='button'>Add to Cart</button>
     </div>
+    <br>
     </div>
+    
     ";
- 
 
      ?>
     <!-- <div class="column">
@@ -127,10 +130,12 @@ $query= $_GET['search'];
           <p class="price"></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
          
-        </div>
+        </div>-->
        
-      </div> -->
+      
       <?php endforeach ?>
+      
+  </div>
   </section>
 
   <!-- section for cart -->
