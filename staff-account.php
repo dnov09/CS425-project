@@ -53,10 +53,6 @@ $sql="select * from customer where username='".$user."' limit 1";
   </head>
   <body>
 
-    <div class="account">
-    <a href="editcredit.php" alt="account" height="80">Edit credit</a>
-  </div>
-
   <section class= "info">
       <h1><center>Account Information</center></h1>
     <form class="form" action="test.php" method="POST" enctype="multipart/form-data">
@@ -97,7 +93,7 @@ $sql="select * from customer where username='".$user."' limit 1";
             required
           />
 
-        <label for="address"><b>Payment Address (Street Address, City, State, Zipcode) </b></label>
+        <label for="address"><b>Address (Street Address, City, State, Zipcode) </b></label>
         <input
           type="text"
           id="name"
@@ -107,29 +103,22 @@ $sql="select * from customer where username='".$user."' limit 1";
           value=<?=$_SESSION['user'][2] ?>
           required
         />
-
-        <label for="ccardnum"><b>Credit card number</b></label>
+<!-- should not be editable -->
+        <label for="salary"><b>Salary</b></label>
         <input
           type="text"
           id="name"
-          placeholder="Credit card number"
-          name="cnumb"
+          placeholder="Salary"
+          name="salary"
           required
         />
-        <label for="expiration"><b>Expiration date(mm/yy) </b></label>
+      <!-- should not be editable -->
+        <label for="job-title"><b>Job Title</b></label>
         <input
           type="text"
-          id="expiration"
-          placeholder="mm/yy"
-          name="expiration"
-          required
-        />
-        <label for="cvv"><b>CVV </b></label>
-        <input
-          type="text"
-          id="cvv"
-          placeholder="cvv"
-          name="cvv"
+          id="job-title"
+          placeholder="job-title"
+          name="job-title"
           required
         />
         <a href="account.html"><button type="submit" id="save_changes" name="changes">Save changes</button></a>
