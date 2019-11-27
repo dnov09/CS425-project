@@ -104,12 +104,28 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
+
 INSERT INTO `product` (`p_id`, `p_name`, `p_type`, `p_image`, `nutrition`, `size`, `price`) VALUES
-(1, 'Banana', 'Food', 'images/banana.jpg', 'images/bananainfo.jpg', 2, '$0.50'),
-(2, 'Strawberry', 'Food', 'images/strawberry.jpg', 'images/strawberryinfo.jpg', 1, '$0.90'),
+(1, 'banana', 'Food', 'images/banana.jpg', 'images/bananainfo.jpg', 2, '$0.50'),
+(2, 'strawberry', 'Food', 'images/strawberry.jpg', 'images/strawberryinfo.jpg', 1, '$0.90'),
 (3, 'orange', 'Food', 'images/orange.jpg', 'images/orangeinfo.jpg', 2, '$0.50'),
 (4, '2% Milk', 'Drink', 'images/2milk.jpg', 'images/2%milkinfo.jpg', 2, '$2.50'),
-(5, 'Whole Milk', 'Drink', 'images/wholemilk.jpg', 'images/wholemilkinfo.jpg', 2, '$2.75');
+(5, 'whole Milk', 'Drink', 'images/wholemilk.jpg', 'images/wholemilkinfo.jpg', 2, '$2.75'),
+(6, 'apple', 'Food', 'images/apple.jpg', 'images/appleinfo.jpg', 2, '$0.75'),
+(7, 'half and half milk', 'drink', 'images/half&half.jpg', 'images/half&halfinfo.jpg', 2, '$2.90'),
+(8, 'chocolate milk', 'drink', 'images/chocolatemilk.jpg', 'images/chocolatemilkinfo.jpg', 1, '$3.50'),
+(9, 'apple juice', 'drink', 'images/applejuice.jpeg', 'images/applejuiceinfo.jpg', 2, '$1.50'),
+(10, 'orange juice', 'drink', 'images/orangejuice.jpg', 'images/orangejuiceinfo.jpg', 2, '$1.50'),
+(11, 'pineapple juice', 'drink', 'images/pineapplejuice.jpg', 'images/pineapplejuiceinfo.jpg', 2, '$1.50'),
+(12, 'grape juice', 'drink', 'images/grapejuice.jpg', 'images/grapejuiceinfo.jpg', 2, '$1.50'),
+(13, 'white bread', 'food', 'images/whitebread.jpg', 'images/pineapplejuiceinfo.jpg', 2, '$2.25'),
+(14, 'wheat bread', 'food', 'images/wheatbread.jpg', 'images/pineapplejuiceinfo.jpg', 2, '$2.50'),
+(15, 'multigrain bread', 'food', 'images/multigrainbread.jpg', 'images/pineapplejuiceinfo.jpg', 2, '$2.90'),
+(16, 'banana bread', 'food', 'images/bananabread.jpg', 'images/pineapplejuiceinfo.jpg', 2, '$3.00'),
+(17, 'beer', 'alcohol', 'images/beer.jpg', 'images/beerinfo.jpg', 2, '$2.00'),
+(18, 'vodka', 'alcohol', 'images/vodka.jpg', 'images/vodkainfo.jpg', 2, '$20.00'),
+(19, 'whiskey', 'alcohol', 'images/whiskey.jpg', 'images/whiskeyinfo.jpg', 2, '$15.00'),
+(20, 'rum', 'alcohol', 'images/rum.jpg', 'images/ruminfo.jpg', 2, '$2.00');
 
 -- --------------------------------------------------------
 
