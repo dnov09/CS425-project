@@ -61,6 +61,8 @@ if(isset($_POST['save'])){
         />
 
         <button type="submit" id="sign" name='save'>Login</button>
+        <a href="signup.php">Dont have an Account? Sign up</a>
+        <br>
         <label>
           <input type="checkbox" checked="checked" name="remember" /> Remember
           me

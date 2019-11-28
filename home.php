@@ -346,15 +346,17 @@ $sql="select * from product ";
   </form>
   </section>
   </div>
-  <?php foreach ($_SESSION[$_SESSION['username']] as $num) : ?>
-   
-   <?php
-   
-   $num[0]=ucfirst($num[0]);
-  echo "<script>addToCartClickedforsession('$num[0]','$num[2]','$num[3]');</script>";
+  
+     <?php
+     if(isset($_SESSION[$_SESSION['username']])){
+foreach ($_SESSION[$_SESSION['username']] as $num){
 
-    ?>
-     <?php endforeach ?>
+  $num[0]=ucfirst($num[0]);
+  echo "<script>addToCartClickedforsession('$num[0]','$num[2]','$num[3]');</script>";
+}}
+
+
+?>
 </body>
 
 </html>
