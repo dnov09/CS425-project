@@ -2,7 +2,7 @@
 session_start();
 require_once('connection.php');
 $_SESSION['products']=array();
-$remem=$_SESSION['cart_p'];
+//$remem=$_SESSION['cart_p'];
 $sql="select * from product ";
 // $sql="select * from customer where username='".$user."' limit 1";
  $result=mysqli_query($con,$sql);
@@ -56,10 +56,13 @@ $sql="select * from product ";
   </form>
   <div class="user">Welcome , <?=$_SESSION['username'] ?> </div>
   <div class="alerter"><?=$_SESSION['username'] ?></div>
-
+  <div class="logout">
+    <a href="loginpage.php" alt="account" height="80">Log out</a>
+  </div>
   <div class="account">
     <a href="account.php" alt="account" height="80">My Account</a>
   </div>
+  
   <div class="cart">
     <a href="#cart"><input type="image" src="images/cart_icon.png" alt="Logo" width="80" height="80"></a>
   </div>
@@ -343,12 +346,12 @@ $sql="select * from product ";
   </form>
   </section>
   </div>
-  <?php foreach ($_SESSION['cart_p'] as $num) : ?>
+  <?php foreach ($_SESSION[$_SESSION['username']] as $num) : ?>
    
    <?php
-   list($part1, $part2)=explode('.',$num[2]);
+   
    $num[0]=ucfirst($num[0]);
-  echo "<script>addToCartClickedforsession('$num[0]','$part1','$num[3]');</script>";
+  echo "<script>addToCartClickedforsession('$num[0]','$num[2]','$num[3]');</script>";
 
     ?>
      <?php endforeach ?>

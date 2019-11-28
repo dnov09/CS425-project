@@ -31,7 +31,9 @@ $sql="select * from product where p_name='".$name."' ";
     echo "Bros chai";
  }
 }
-$_SESSION['cart_p']=$my_array;
+
+$_SESSION[$_SESSION['username']]=$my_array;
+//$_SESSION['cart_p']=$my_array;
 ?>
 
 <!DOCTYPE html>
@@ -79,7 +81,7 @@ $_SESSION['cart_p']=$my_array;
   </form>
     <section class="products">
   <div class="row">
-  <?php foreach ($_SESSION['cart_p'] as $num) : ?>
+  <?php foreach ($_SESSION[$_SESSION['username']] as $num) : ?>
    
     <?php
     echo " 

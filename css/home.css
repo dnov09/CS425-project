@@ -41,7 +41,14 @@ a{
   color: white;
   text-decoration: none;
 }
+.logout{
 
+  position: absolute;
+  right: 15em;
+  top: 20px;
+  padding:0.7em;
+  border-style: groove;
+}
 h1, h2{
   font-family: 'Montserrat', sans-serif;
   color: white;
