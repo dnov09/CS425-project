@@ -2,9 +2,12 @@
 session_start();
 require_once('connection.php');
 $_SESSION['cartsession']=$_GET['product'];
+$amounts=$_GET['amount'];
+
 $query= $_SESSION['cartsession'];
 $my_array=array();
 foreach ($query as $num){
+
 $name=strtolower($num);
 if(strpos($name,'-')==false){
 
@@ -22,9 +25,9 @@ $sql="select * from product where p_name='".$name."' ";
 
     }
     
-  //  echo implode(" ",$_SESSION['products'][1]);
+ 
  }else{
-    // $_SESSION['message']='Log in Credentials Failed';
+   
     echo "Bros chai";
  }
 }
@@ -64,8 +67,11 @@ $_SESSION['cart_p']=$my_array;
     </script>
   </head>
   <body>
+
+  
+
     <div class="imgcontainer">
-      <a href="home.html"><img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150" align= "left"/></a>
+      <a href="home.php"><img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150" align= "left"/></a>
     </div>
     <form class="example" action="action_page.php" method="GET" style="margin:auto;max-width:300px">
     <input type="text" placeholder="Search for products" name="search">
