@@ -257,3 +257,80 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE `ccard` (
+ `c_id` int(11) DEFAULT NULL,
+ `cc_expiration` varchar(256) DEFAULT NULL,
+ `cvv` varchar(3) DEFAULT NULL,
+ `address` varchar(100) NOT NULL,
+ `cc_id` int(11) NOT NULL AUTO_INCREMENT,
+ `cc_number` varchar(256) NOT NULL,
+ PRIMARY KEY (`cc_id`),
+ KEY `c_id` (`c_id`),
+ CONSTRAINT `ccard_ibfk_1` FOREIGN KEY (`c_id`) REFERENCES `customer` (`c_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4
+
+CREATE TABLE `customer` (
+ `c_id` int(11) NOT NULL AUTO_INCREMENT,
+ `username` varchar(20) NOT NULL,
+ `first` varchar(100) NOT NULL,
+ `last` varchar(100) NOT NULL,
+ `pword` varchar(100) NOT NULL,
+ `balance` decimal(8,2) DEFAULT NULL CHECK (`balance` >= 0),
+ `address` varchar(100) NOT NULL,
+ PRIMARY KEY (`c_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4
+
+CREATE TABLE `not_keyword_address` (
+ `address_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+ `street_name` varchar(256) DEFAULT NULL,
+ `city` varchar(256) DEFAULT NULL,
+ `not_keyword_state` varchar(2) DEFAULT NULL,
+ `zipcode` varchar(5) DEFAULT NULL,
+ PRIMARY KEY (`address_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+
+CREATE TABLE `not_keyword_order` (
+ `c_id` int(11) DEFAULT NULL,
+ `p_id` int(11) DEFAULT NULL,
+ `not_keyword_status` varchar(10) DEFAULT NULL,
+ KEY `c_id` (`c_id`),
+ CONSTRAINT `not_keyword_order_ibfk_1` FOREIGN KEY (`c_id`) REFERENCES `customer` (`c_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+
+CREATE TABLE `product` (
+ `p_id` int(11) NOT NULL AUTO_INCREMENT,
+ `p_name` varchar(256) DEFAULT NULL,
+ `p_type` varchar(256) DEFAULT NULL,
+ `p_image` varchar(256) DEFAULT NULL,
+ `nutrition` varchar(256) DEFAULT NULL,
+ `size` int(11) DEFAULT NULL CHECK (`size` > 0),
+ `price` varchar(20) NOT NULL,
+ PRIMARY KEY (`p_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4
+
+CREATE TABLE `staff` (
+ `s_id` int(11) NOT NULL AUTO_INCREMENT,
+ `username` varchar(20) NOT NULL,
+ `pword` varchar(100) NOT NULL,
+ `first_name` varchar(20) NOT NULL,
+ `last_name` varchar(20) NOT NULL,
+ `address` varchar(100) DEFAULT NULL,
+ `job_title` varchar(50) DEFAULT NULL,
+ `salary` decimal(8,2) DEFAULT NULL,
+ PRIMARY KEY (`s_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+
+CREATE TABLE `stock` (
+ `p_id` int(11) NOT NULL,
+ `quantity` int(11) DEFAULT NULL CHECK (`quantity` >= 0),
+ PRIMARY KEY (`p_id`),
+ CONSTRAINT `stock_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `product` (`p_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+
+CREATE TABLE `warehouse` (
+ `w_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+ `not_keyword_address` varchar(256) DEFAULT NULL,
+ `quantity` int(11) DEFAULT NULL CHECK (`quantity` >= 0),
+ PRIMARY KEY (`w_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
