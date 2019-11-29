@@ -1,3 +1,4 @@
+var count=0
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
 } else {
@@ -65,10 +66,17 @@ function addToCartClicked(event) {
     // console.log(title, price, imgSrc)
     addItemToCart(title, price, imgSrc)
     updateCartTotal()
+    
+    count=count+1
+    document.getElementsByClassName('cart-count')[0].setAttribute("style", "")
+    document.getElementsByClassName('cart-count')[0].innerHTML=count
 }
 function addToCartClickedforsession(title, price, imgSrc) {
     addItemToCartsession(title, price, imgSrc)
     updateCartTotal()
+    count=count+1
+    document.getElementsByClassName('cart-count')[0].setAttribute("style", "")
+    document.getElementsByClassName('cart-count')[0].innerHTML=count
 }
 
 function addItemToCart(title, price, imgSrc) {
@@ -143,6 +151,12 @@ function removeCartItems(event) {
     var buttonClicked = event.target
     buttonClicked.parentElement.parentElement.remove()
     updateCartTotal()
+    count=count-1
+    if(count==0){
+        document.getElementsByClassName('cart-count')[0].setAttribute("style", "display: none;")
+    }else{
+    document.getElementsByClassName('cart-count')[0].setAttribute("style", "")
+    document.getElementsByClassName('cart-count')[0].innerHTML=count}
 }
 
 function updateCartTotal() {

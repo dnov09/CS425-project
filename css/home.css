@@ -49,6 +49,22 @@ a{
   padding:0.7em;
   border-style: groove;
 }
+.cart-count {
+  background-color: 
+#f63636;
+border-radius: 100%;
+display: block;
+color:
+  #fff;
+  font-size: 10px;
+  height: 22px;
+  line-height: 22px;
+  position: absolute;
+  right: -5px;
+  text-align: center;
+  top: -10px;
+  width: 22px;
+}
 h1, h2{
   font-family: 'Montserrat', sans-serif;
   color: white;
@@ -122,8 +138,8 @@ form.example::after {
 
 .cart{
   position: absolute;
-  top:0;
-  right: 0;
+  top:1em;
+  right: 1em;
 
 }
 .column {

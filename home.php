@@ -64,7 +64,8 @@ $sql="select * from product ";
   </div>
   
   <div class="cart">
-    <a href="#cart"><input type="image" src="images/cart_icon.png" alt="Logo" width="80" height="80"></a>
+    <a href="#cart"><input type="image" src="images/cart_icon.png" alt="Logo" width="50" height="50"></a>
+    <div class="cart-count" style="display: none;"></div>
   </div>
 
 
