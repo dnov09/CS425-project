@@ -350,8 +350,8 @@ $sql="select * from product ";
      <?php
      if(isset($_SESSION[$_SESSION['username']])){
 foreach ($_SESSION[$_SESSION['username']] as $num){
-
-  $num[0]=ucfirst($num[0]);
+//make datbase alll pull to show products
+ // $num[0]=ucfirst($num[0]);
   echo "<script>addToCartClickedforsession('$num[0]','$num[2]','$num[3]');</script>";
 }}
 

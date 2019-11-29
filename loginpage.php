@@ -38,7 +38,7 @@ if(isset($_POST['save'])){
   <body>
     <form class="form" action="loginpage.php" method="POST" enctype="multipart/form-data">
       <div class="imgcontainer">
-        <img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150"/>
+        <a href="index.html"><img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150"/></a>
       </div>
 <div class="alerter"><?=$_SESSION['message'] ?></div>
       <div class="container">

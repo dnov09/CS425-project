@@ -13,7 +13,7 @@ if(strpos($name,'-')==false){
 
 }else{
   list($part1, $part2)=explode('-',$name);
-$name=$part1.' '.$part2;
+$name=$part1.$part2;
 }
 
 $sql="select * from product where p_name='".$name."' ";

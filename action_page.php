@@ -158,4 +158,14 @@ $query= $_GET['search'];
   </form>
   </section>
   </div>
+  <?php
+     if(isset($_SESSION[$_SESSION['username']])){
+foreach ($_SESSION[$_SESSION['username']] as $num){
+
+  $num[0]=ucfirst($num[0]);
+  echo "<script>addToCartClickedforsession('$num[0]','$num[2]','$num[3]');</script>";
+}}
+
+
+?>
 </body>
