@@ -88,11 +88,11 @@ $sql="select * from product ";
       <div class="column">
         <div class="card">
           <a class="nutrition" href="images/appleinfo.jpg">
-            <img src="images/apple.jpg" class="pimage" alt="Apple" width="80" height="80">
+            <img src=<?=$_SESSION['products'][5][3] ?> class="pimage" alt="Apple" width="80" height="80">
           </a>
-          <h1 class="pname">Apple</h1>
-          <h2 class="food">Type: Food</h2>
-          <p class="price">$0.75</p>
+          <h1 class="pname"><?=$_SESSION['products'][5][0] ?></h1>
+          <h2 class="food">Type: <?=$_SESSION['products'][5][1] ?></h2>
+          <p class="price"><?=$_SESSION['products'][5][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
         </div>
       </div>
@@ -152,11 +152,11 @@ $sql="select * from product ";
       <div class="column">
         <div class="card">
           <a class="nutrition" href="images/half&halfinfo.jpg">
-            <img src="images/half&half.jpg" class="pimage" alt="Half and Half" width="80" height="80">
+            <img src=<?=$_SESSION['products'][6][3] ?> class="pimage" alt="Half and Half" width="80" height="80">
           </a>
-          <h1 class="pname">Halfand-HalfMilk</h1>
-          <h2 class="drink">Type: Drink</h2>
-          <p class="price">$2.90</p>
+          <h1 class="pname"><?=$_SESSION['products'][6][0] ?></h1>
+          <h2 class="drink">Type: <?=$_SESSION['products'][6][1] ?></h2>
+          <p class="price"><?=$_SESSION['products'][6][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
         </div>
       </div>
@@ -164,11 +164,11 @@ $sql="select * from product ";
       <div class="column">
         <div class="card">
           <a class="nutrition" href="images/chocolatemilkinfo.jpg">
-            <img src="images/chocolatemilk.jpg" class="pimage" alt="chocolatemilk" width="80" height="80">
+            <img src=<?=$_SESSION['products'][7][3] ?> class="pimage" alt="chocolatemilk" width="80" height="80">
           </a>
-          <h1 class="pname">Chocolate-Milk</h1>
-          <h2 class="drink">Type: Drink</h2>
-          <p class="price">$3.50</p>
+          <h1 class="pname"><?=$_SESSION['products'][7][0] ?></h1>
+          <h2 class="drink">Type: <?=$_SESSION['products'][7][1] ?></h2>
+          <p class="price"><?=$_SESSION['products'][7][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
         </div>
       </div>
@@ -181,11 +181,11 @@ $sql="select * from product ";
       <div class="column">
         <div class="card">
           <a class="nutrition" href="images/applejuiceinfo.jpg">
-            <img src="images/applejuice.jpeg" class="pimage" alt="apple juice" width="80" height="80">
+            <img src=<?=$_SESSION['products'][8][3] ?> class="pimage" alt="apple juice" width="80" height="80">
           </a>
-          <h1 class="pname">Apple-juice</h1>
-          <h2 class="drink">Type: Drink</h2>
-          <p class="price">$1.50</p>
+          <h1 class="pname"><?=$_SESSION['products'][8][0] ?></h1>
+          <h2 class="drink">Type: <?=$_SESSION['products'][8][1] ?></h2>
+          <p class="price"><?=$_SESSION['products'][8][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
         </div>
       </div>
@@ -193,11 +193,11 @@ $sql="select * from product ";
       <div class="column">
         <div class="card">
           <a class="nutrition" href="images/orangejuiceinfo.jpg">
-            <img src="images/orangejuice.jpg" class="pimage" alt="orange juice" width="80" height="80">
+            <img src=<?=$_SESSION['products'][9][3] ?> class="pimage" alt="orange juice" width="80" height="80">
           </a>
-          <h1 class="pname">Orange-juice</h1>
-          <h2 class="drink">Type: Drink</h2>
-          <p class="price">$1.50</p>
+          <h1 class="pname"><?=$_SESSION['products'][9][0] ?></h1>
+          <h2 class="drink">Type: <?=$_SESSION['products'][9][1] ?></h2>
+          <p class="price"><?=$_SESSION['products'][9][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
         </div>
       </div>
@@ -205,11 +205,11 @@ $sql="select * from product ";
       <div class="column">
         <div class="card">
           <a class="nutrition" href="images/pineapplejuiceinfo.jpg">
-            <img src="images/pineapplejuice.jpg" class="pimage" alt="pineapple juice" width="80" height="80">
+            <img src=<?=$_SESSION['products'][10][3] ?> class="pimage" alt="pineapple juice" width="80" height="80">
           </a>
-          <h1 class="pname">Pineapple-juice</h1>
-          <h2 class="drink">Type: Drink</h2>
-          <p class="price">$1.50</p>
+          <h1 class="pname"><?=$_SESSION['products'][10][0] ?></h1>
+          <h2 class="drink">Type: <?=$_SESSION['products'][10][1] ?></h2>
+          <p class="price"><?=$_SESSION['products'][10][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
         </div>
       </div>
@@ -217,11 +217,11 @@ $sql="select * from product ";
       <div class="column">
         <div class="card">
           <a class="nutrition" href="images/grapejuiceinfo.jpg">
-            <img src="images/grapejuice.jpg" class="pimage" alt="grape juice" width="80" height="80">
+            <img src=<?=$_SESSION['products'][11][3] ?> class="pimage" alt="grape juice" width="80" height="80">
           </a>
-          <h1 class="pname">Grape-juice</h1>
-          <h2 class="drink">Type: Drink</h2>
-          <p class="price">$1.50</p>
+          <h1 class="pname"><?=$_SESSION['products'][11][0] ?></h1>
+          <h2 class="drink">Type: <?=$_SESSION['products'][11][1] ?></h2>
+          <p class="price"><?=$_SESSION['products'][11][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
         </div>
       </div>
@@ -233,40 +233,40 @@ $sql="select * from product ";
       <!-- White bread: $2.25 -->
       <div class="column">
         <div class="card">
-          <img src="images/whitebread.jpg" class="pimage" alt="White bread" width="80" height="80">
-          <h1 class="pname">White-bread</h1>
-          <h2 class="food">Type: Food</h2>
-          <p class="price">$2.25</p>
+          <img src=<?=$_SESSION['products'][12][3] ?> class="pimage" alt="White bread" width="80" height="80">
+          <h1 class="pname"><?=$_SESSION['products'][12][0] ?></h1>
+          <h2 class="food">Type: <?=$_SESSION['products'][12][1] ?></h2>
+          <p class="price"><?=$_SESSION['products'][12][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
         </div>
       </div>
       <!-- Wheat bread: $2.50 -->
       <div class="column">
         <div class="card">
-          <img src="images/wheatbread.jpg" class="pimage" alt="wheatbread" width="80" height="80">
-          <h1 class="pname">Wheat-bread</h1>
-          <h2 class="food">Type: Food</h2>
-          <p class="price">$2.50</p>
+          <img src=<?=$_SESSION['products'][13][3] ?> class="pimage" alt="wheatbread" width="80" height="80">
+          <h1 class="pname"><?=$_SESSION['products'][13][0] ?></h1>
+          <h2 class="food">Type: <?=$_SESSION['products'][13][1] ?></h2>
+          <p class="price"><?=$_SESSION['products'][13][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
         </div>
       </div>
       <!-- Multi-grain bread: $2.90 -->
       <div class="column">
         <div class="card">
-          <img src="images/multigrainbread.jpg" class="pimage" alt="Multi-grain bread" width="80" height="80">
-          <h1 class="pname">Multigrain-bread</h1>
-          <h2 class="food">Type: Food</h2>
-          <p class="price">$2.90</p>
+          <img src=<?=$_SESSION['products'][14][3] ?> class="pimage" alt="Multi-grain bread" width="80" height="80">
+          <h1 class="pname"><?=$_SESSION['products'][14][0] ?></h1>
+          <h2 class="food">Type: <?=$_SESSION['products'][14][1] ?></h2>
+          <p class="price"><?=$_SESSION['products'][14][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
         </div>
       </div>
       <!-- bananabread: $3 -->
       <div class="column">
         <div class="card">
-          <img src="images/bananabread.jpg" class="pimage" alt="bananabread" width="80" height="80">
-          <h1 class="pname">Banana-bread</h1>
-          <h2 class="food">Type: Food</h2>
-          <p class="price">$3.00</p>
+          <img src=<?=$_SESSION['products'][15][3] ?> class="pimage" alt="bananabread" width="80" height="80">
+          <h1 class="pname"><?=$_SESSION['products'][15][0] ?></h1>
+          <h2 class="food">Type: <?=$_SESSION['products'][15][1] ?></h2>
+          <p class="price"><?=$_SESSION['products'][15][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
         </div>
       </div>
@@ -279,11 +279,11 @@ $sql="select * from product ";
       <div class="column">
         <div class="card">
           <a class="alcoholcontent" href="images/beerinfo.jpg">
-            <img src="images/beer.jpg" class="pimage" alt="Beer" width="80" height="80">
+            <img src=<?=$_SESSION['products'][16][3] ?> class="pimage" alt="Beer" width="80" height="80">
           </a>
-          <h1 class="pname">Beer</h1>
-          <h2 class="alcoholic-drink">Type: Alcoholic Drink</h2>
-          <p class="price">$2.00</p>
+          <h1 class="pname"><?=$_SESSION['products'][16][0] ?></h1>
+          <h2 class="alcoholic-drink">Type: <?=$_SESSION['products'][16][1] ?></h2>
+          <p class="price"><?=$_SESSION['products'][16][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
         </div>
       </div>
@@ -291,11 +291,11 @@ $sql="select * from product ";
       <div class="column">
         <div class="card">
           <a class="alcoholcontent" href="images/vodkainfo.jpg">
-            <img src="images/vodka.jpg" class="pimage" alt="vodka" width="80" height="80">
+            <img src=<?=$_SESSION['products'][17][3] ?> class="pimage" alt="vodka" width="80" height="80">
           </a>
-          <h1 class="pname">Vodka</h1>
-          <h2 class="alcoholic-drink">Type: Alcoholic Drink</h2>
-          <p class="price">$20.00</p>
+          <h1 class="pname"><?=$_SESSION['products'][17][0] ?></h1>
+          <h2 class="alcoholic-drink">Type: <?=$_SESSION['products'][17][1] ?></h2>
+          <p class="price"><?=$_SESSION['products'][17][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
         </div>
       </div>
@@ -303,11 +303,11 @@ $sql="select * from product ";
       <div class="column">
         <div class="card">
           <a class="alcoholcontent" href="images/whiskeyinfo.jpg">
-            <img src="images/whiskey.jpg" class="pimage" alt="whiskey" width="80" height="80">
+            <img src=<?=$_SESSION['products'][18][3] ?> class="pimage" alt="whiskey" width="80" height="80">
           </a>
-          <h1 class="pname">Whiskey</h1>
-          <h2 class="alcoholic-drink">Type: Alcoholic Drink</h2>
-          <p class="price">$15</p>
+          <h1 class="pname"><?=$_SESSION['products'][18][0] ?></h1>
+          <h2 class="alcoholic-drink">Type: <?=$_SESSION['products'][18][1] ?></h2>
+          <p class="price"><?=$_SESSION['products'][18][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
         </div>
       </div>
@@ -315,11 +315,11 @@ $sql="select * from product ";
       <div class="column">
         <div class="card">
           <a class="alcoholcontent" href="images/ruminfo.jpg">
-            <img src="images/rum.jpg" class="pimage" alt="rum" width="80" height="80">
+            <img src=<?=$_SESSION['products'][19][3] ?> class="pimage" alt="rum" width="80" height="80">
           </a>
-          <h1 class="pname">Rum</h1>
-          <h2 class="alcoholic-drink">Type: Alcoholic Drink</h2>
-          <p class="price">$18.00</p>
+          <h1 class="pname"><?=$_SESSION['products'][19][0] ?></h1>
+          <h2 class="alcoholic-drink">Type: <?=$_SESSION['products'][19][1] ?></h2>
+          <p class="price"><?=$_SESSION['products'][19][2] ?></p>
           <button class="add-to-cart" type="button">Add to Cart</button>
         </div>
       </div>
