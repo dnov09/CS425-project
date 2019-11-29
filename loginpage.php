@@ -3,6 +3,7 @@ session_start();
 require_once('connection.php');
 $_SESSION['message']='';
 $_SESSION['username']='';
+$_SESSION['fullname']='';
 
 if(isset($_POST['save'])){
   $user=mysqli_real_escape_string($con,trim($_POST['uname']));
@@ -15,7 +16,9 @@ if(isset($_POST['save'])){
   $result=mysqli_query($con,$sql);
 
   if(mysqli_num_rows($result)==1){
+    $row = $result->fetch_assoc();
        $_SESSION['username']=$user;
+       $_SESSION['fullname']=$row["first"]." ".$row["last"];
       $_SESSION['message']='Log in successful';
       sleep(1.5);
       header("Location: /dashboard/home.php");

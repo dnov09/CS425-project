@@ -187,3 +187,7 @@ function quantityChanged(event) {
     }
     updateCartTotal()
 }
+function turnoff(){
+    document.getElementsByClassName('cards').setAttribute("style", "display: none;")
+
+}
