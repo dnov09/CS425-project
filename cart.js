@@ -88,7 +88,7 @@ function addItemToCart(title, price, imgSrc) {
     console.log(cartNames)
     for (var i = 0; i < cartNames.length; i++) {
         if (cartNames[i].innerText == title) {
-            
+            count=count-1
             alert('Item already in cart')
             return
         }
@@ -124,6 +124,7 @@ function addItemToCartsession(title, price, imgSrc) {
         if (cartNames[i].innerText == title) {
             
             alert('Item already in cart')
+            count=count-1
             return
         }
     }

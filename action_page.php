@@ -57,7 +57,7 @@ $query= $_GET['search'];
   <link rel="stylesheet" href="css/cart.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <script src="cart.js" async></script>
+  <script src="cart.js" ></script>
   <!-- update the version number as needed -->
   <!-- <script defer src="/__/firebase/7.2.0/firebase-app.js"></script> -->
   <!-- include only the Firebase features as you need -->
@@ -95,7 +95,8 @@ $query= $_GET['search'];
     <a href="account.php" alt="account" height="80">Credit-Card(+)</a>
   </div>
   <div class="cart">
-    <a href="#cart"><input type="image" src="images/cart_icon.png" alt="Logo" width="80" height="80"></a>
+    <a href="#cart"><input type="image" src="images/cart_icon.png" alt="Logo" width="50" height="50"></a>
+    <div class="cart-count" style="display: none;"></div>
   </div>
 
 
@@ -153,6 +154,7 @@ $query= $_GET['search'];
     <div class="cart-total">
       <strong class="cart-total-title">Total</strong>
       <span class="cart-total-price">$0</span>
+      <input type="hidden" name="total" id="totalcart">
     </div>
     <button class="btn-checkout" type="submit">Go to checkout</button>
   </form>
