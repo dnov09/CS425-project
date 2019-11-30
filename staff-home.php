@@ -1,24 +1,14 @@
 <?php
 session_start();
 require_once('connection.php');
-$_SESSION['customers']=array();
+$_SESSION['customer']=array();
 
+$sql = "select * from  customer ;";
+$result = mysqli_query($con, $sql);
 
-$sql = "SELECT * FROM customer";
-$result = mysqli_query($conn, $sql);
-echo "<br>";
-echo "<table border='1'>";
-while ($row = mysqli_fetch_assoc($mysqli_result)) { // Important line !!! Check summary get row on array ..
-    echo "<tr>";
-    foreach ($row as $value) { // I you want you can right this line like this: foreach($row as $value) {
-        echo "<td>" . $value . "</td>"; // I just did not use "htmlspecialchars()" function. 
-    }
-    echo "</tr>";
-}
-echo "</table>";
 ?>
-
-<title>Home</title>
+ 
+<title>Staff Home</title>
 <link href="css/home.css" rel="stylesheet" />
 <link rel="stylesheet" href="css/staff-home.css">
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
@@ -51,14 +41,21 @@ echo "</table>";
 
 <section class="customers">
 <h2>Cutomers with active orders</h2>
-<table>
-
-  </table>
+<?php
+echo "<br>";
+echo "<table border='1'>";
+while ($row = mysqli_fetch_assoc($result)) { // Important line !!! Check summary get row on array ..
+    echo "<tr>";
+    foreach ($row as $value) { // I you want you can right this line like this: foreach($row as $value) {
+        echo "<td>" . $value . "</td>"; // I just did not use "htmlspecialchars()" function. 
+    }
+    echo "</tr>";
+}
+echo "</table>";
+?>
 </section>
 
 
 
-</body>
-<!--
-</html> -->
-
+</body> 
+</html>
