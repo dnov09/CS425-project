@@ -11,7 +11,7 @@ if($_SESSION['flag']){
 foreach ($_SESSION['faultercount'] as $bum){
   $amt=$amt.$bum.",";
 }
-echo "<script>alert('".$res." amount in cart is more than in stock Please reduce amount. Amounts are respectively (".$amt.")');</script>";
+echo "<script>alert('(".$res.") amount in cart is more than in stock Please reduce amount. Amounts are respectively (".$amt.")');</script>";
   $_SESSION['flag']=False;
 }
 }
