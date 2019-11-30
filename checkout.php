@@ -1,10 +1,74 @@
 <?php
 session_start();
 require_once('connection.php');
+$_SESSION['flag']=False;
+$_SESSION['faulter']=array();
+$_SESSION['faultercount']=array();
+$pids=array();
 if(isset($_GET['product'])){
 $_SESSION['cartsession']=$_GET['product'];}
 if(isset($_GET['amount'])){
-$amounts=$_GET['amount'];}
+$amounts=$_GET['amount'];
+}
+
+foreach ($_SESSION['products'] as $bum){
+
+  $sql="select * from stock where p_id='".$bum[4]."' ";
+ $result=mysqli_query($con,$sql);
+
+ if(mysqli_num_rows($result)>0){
+    while($row = $result->fetch_assoc()) {
+      //echo $row["p_id"];
+       array_push($pids,array($row["p_id"],$row["quantity"]));
+    }
+    
+ 
+ }else{
+    echo "Bros chai";
+ }
+}
+
+for($i=0;$i<count($_SESSION['cartsession']);$i++){
+$prod=$_SESSION['cartsession'][$i];
+foreach ($_SESSION['products'] as $bum){
+
+ if($prod==$bum[0]){
+   $id=$bum[4];
+   foreach ($pids as $lum){
+
+    if($id==$lum[0]){
+      if($amounts[$i]>$lum[1]){
+        $_SESSION['flag']=True;
+       // echo "<script>alert('".$prod." amount in  cart is more than in stock Please reduce amount');</script>";
+       array_push($_SESSION['faulter'],$prod);
+       array_push($_SESSION['faultercount'],$lum[1]);
+       
+        
+      }
+      
+    }
+   }
+ }
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 $_SESSION['cards']=array();
 $user=$_SESSION['username'];
 $c_id='';
@@ -39,6 +103,13 @@ $sql="select * from product where p_name='".$name."' ";
 
 $_SESSION[$_SESSION['username']]=$my_array;
 //$_SESSION['cart_p']=$my_array;
+if($_SESSION['flag']){
+  sleep(1.5);
+   header("Location: /dashboard/home.php");
+  exit();
+  }
+
+
 $sql="select * from customer where username='".$user."' limit 1";
 $result=mysqli_query($con,$sql);
 

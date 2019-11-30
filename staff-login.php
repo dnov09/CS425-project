@@ -9,8 +9,8 @@ if(isset($_POST['save'])){
   $pass=mysqli_real_escape_string($con,trim($_POST['psw']));
 
 
-  $password=md5($pass);
-  $sql="select * from customer where username='".$user."' AND pword='".$password."' limit 1";
+ // $password=md5($pass);
+  $sql="select * from staff where username='".$user."' AND pword='".$pass."' limit 1";
  // $sql="select * from customer where username='".$user."' limit 1";
   $result=mysqli_query($con,$sql);
 
@@ -18,7 +18,7 @@ if(isset($_POST['save'])){
        $_SESSION['username']=$user;
       $_SESSION['message']='Log in successful';
       sleep(1.5);
-      header("Location: /dashboard/home.php");
+      header("Location: /dashboard/staff-home.php");
       exit();
 
   }else{
@@ -36,7 +36,7 @@ if(isset($_POST['save'])){
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
   </head>
   <body>
-    <form class="form" action="loginpage.php" method="POST" enctype="multipart/form-data">
+    <form class="form" action="staff-login.php" method="POST" enctype="multipart/form-data">
       <div class="imgcontainer">
         <img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150"/>
       </div>

@@ -29,7 +29,7 @@ $result = mysqli_query($con, $sql);
 
 <body>
 <div class="imgcontainer">
-  <img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150" align="left" />
+<a href="index.html"><img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150" align="left" /><a>
 </div>
 
 <div class="user">Welcome , <?=$_SESSION['username'] ?> </div>

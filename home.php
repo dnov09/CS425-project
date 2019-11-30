@@ -1,6 +1,20 @@
 <?php
 session_start();
 require_once('connection.php');
+if(isset($_SESSION['flag'])){
+if($_SESSION['flag']){
+  $res="";
+  $amt="";
+  foreach ($_SESSION['faulter'] as $bum){
+  $res=$res.$bum.",";
+}
+foreach ($_SESSION['faultercount'] as $bum){
+  $amt=$amt.$bum.",";
+}
+echo "<script>alert('".$res." amount in cart is more than in stock Please reduce amount. Amounts are respectively (".$amt.")');</script>";
+  $_SESSION['flag']=False;
+}
+}
 $_SESSION['products']=array();
 //$remem=$_SESSION['cart_p'];
 $sql="select * from product ";
@@ -9,7 +23,7 @@ $sql="select * from product ";
  $my_array=array();
  if(mysqli_num_rows($result)>0){
     while($row = $result->fetch_assoc()) {
-        array_push($my_array,array($row["p_name"],$row["p_type"],$row["price"],$row["p_image"]));
+        array_push($my_array,array($row["p_name"],$row["p_type"],$row["price"],$row["p_image"],$row["p_id"]));
 
     }
     $_SESSION['products']=$my_array;

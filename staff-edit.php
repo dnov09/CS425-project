@@ -43,7 +43,7 @@ $sql="select * from product ";
       <h1><center>Edit <?=$num[0]?> </center></h1>
     <form class="form" action="editproduct.php" method="GET" enctype="multipart/form-data">
       <div class="imgcontainer">
-        <a href="home.php"><img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150"/></a>
+        <a href="staff-home.php"><img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150"/></a>
       </div>
 
         <label for="address"><b>Product name </b></label>
