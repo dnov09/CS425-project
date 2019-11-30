@@ -334,3 +334,9 @@ CREATE TABLE `warehouse` (
  `quantity` int(11) DEFAULT NULL CHECK (`quantity` >= 0),
  PRIMARY KEY (`w_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+
+
+-- SQL COMMANDS --
+INSERT INTO stock (p_id, quantity)
+SELECT p_id, 50
+FROM product;
