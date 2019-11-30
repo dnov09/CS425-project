@@ -40,7 +40,7 @@ $result = mysqli_query($con, $sql);
 </div>
 
 <section class="customers">
-<h2>Cutomers with active orders</h2>
+<h2>Cutomers</h2>
 <?php
 echo "<br>";
 echo "<table border='1'>";
