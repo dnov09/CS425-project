@@ -219,23 +219,7 @@ $sql="select * from ccard where c_id='".$c_id."'";
                 </div>
 
                 <div class="HiddenBox">Please choose a card on file</div>
-                <form id="card_stuff" action="checkout.php" method="POST" enctype="multipart/form-data"><select name="cards" class="cards">
-
-       <?php
-       for($i=0;$i<count($_SESSION['cards']);$i++){
-       echo "
-       <option value=$i >".$_SESSION['cards'][$i][1]."</option>
-       ";
-      }
-        ?>
-
-      </select>
-
-      <input type="checkbox"  name="sameadr" id="check" > Shipping address same as billing
-      <br><br>
-        <input type="submit" value="Choose card" class= "button" name='populate' form="card_stuff">
-      <br>
-
+                
 <br>
                 <label for="cname">Name on Card</label>
                 <input type="text" id="cname" name="cardname" placeholder="John More Doe">
@@ -271,6 +255,24 @@ $sql="select * from ccard where c_id='".$c_id."'";
   }
 
    ?></form>
+<form id="card_stuff" action="checkout.php" method="POST" enctype="multipart/form-data"><select name="cards" class="cards">
+
+<?php
+for($i=0;$i<count($_SESSION['cards']);$i++){
+echo "
+<option value=$i >".$_SESSION['cards'][$i][1]."</option>
+";
+}
+ ?>
+
+</select>
+
+<input type="checkbox"  name="sameadr" id="check" > Shipping address same as billing
+<br><br>
+ <input type="submit" value="Choose card" class= "button" name='populate' form="card_stuff">
+<br>
+
+
    <?php
    if(isset($_POST['populate'])){
   $pos=trim($_POST['cards']);
