@@ -1,6 +1,22 @@
+<?php
+session_start();
+require_once('connection.php');
+$_SESSION['customers']=array();
 
 
-
+$sql = "SELECT * FROM customer";
+$result = mysqli_query($conn, $sql);
+echo "<br>";
+echo "<table border='1'>";
+while ($row = mysqli_fetch_assoc($mysqli_result)) { // Important line !!! Check summary get row on array ..
+    echo "<tr>";
+    foreach ($row as $value) { // I you want you can right this line like this: foreach($row as $value) {
+        echo "<td>" . $value . "</td>"; // I just did not use "htmlspecialchars()" function. 
+    }
+    echo "</tr>";
+}
+echo "</table>";
+?>
 
 <title>Home</title>
 <link href="css/home.css" rel="stylesheet" />
@@ -8,15 +24,6 @@
 <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="cart.js" async></script>
-<!-- update the version number as needed -->
-<!-- <script defer src="/__/firebase/7.2.0/firebase-app.js"></script> -->
-<!-- include only the Firebase features as you need -->
-<!-- <script defer src="/__/firebase/7.2.0/firebase-auth.js"></script> -->
-<!-- <script defer src="/__/firebase/7.2.0/firebase-database.js"></script> -->
-<!-- <script defer src="/__/firebase/7.2.0/firebase-messaging.js"></script> -->
-<!-- <script defer src="/__/firebase/7.2.0/firebase-storage.js"></script> -->
-<!-- initialize the SDK after all desired features are loaded -->
-<!-- <script defer src="/__/firebase/init.js"></script> -->
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
@@ -54,3 +61,4 @@
 </body>
 <!--
 </html> -->
+

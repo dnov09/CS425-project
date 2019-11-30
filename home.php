@@ -25,7 +25,7 @@ $sql="select * from product ";
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Home</title>
+  <title><?=$_SESSION['username'] ?> 's Homepage</title>
   <link href="css/home.css" rel="stylesheet" />
   <link rel="stylesheet" href="css/cart.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
