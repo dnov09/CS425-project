@@ -9,8 +9,11 @@ if(isset($_GET['product'])){
 $_SESSION['cartsession']=$_GET['product'];}
 if(isset($_GET['amount'])){
 $amounts=$_GET['amount'];
+$_SESSION['pamounts']=$_GET['amount'];
 }
-
+if(isset($_GET['total'])){
+  $_SESSION['total']=$_GET['total'];}
+//echo $total;
 foreach ($_SESSION['products'] as $bum){
 
   $sql="select * from stock where p_id='".$bum[4]."' ";
@@ -27,7 +30,7 @@ foreach ($_SESSION['products'] as $bum){
     echo "Bros chai";
  }
 }
-
+if(isset($_GET['product'])&&isset($_GET['total'])){
 for($i=0;$i<count($_SESSION['cartsession']);$i++){
 $prod=$_SESSION['cartsession'][$i];
 foreach ($_SESSION['products'] as $bum){
@@ -52,7 +55,7 @@ foreach ($_SESSION['products'] as $bum){
 }
 
 }
-
+}
 
 
 
@@ -190,8 +193,8 @@ $sql="select * from ccard where c_id='".$c_id."'";
     <div class="row">
       <div class="col-75">
         <div class="container">
-          <form action="/action_page.php">
-
+          <form action="finalorder.php" method="POST">
+          <div>Total:$<?=$_SESSION['total']?></div>
             <div class="row">
               <div class="col-50">
                 <h3 class="bill">Billing Address</h3>
@@ -252,7 +255,7 @@ $sql="select * from ccard where c_id='".$c_id."'";
 
             </div>
             
-            <input type="submit" value="Checkout" class="btn">
+            <input type="submit" value="Checkout" class="btn" name='order'>
           </form>
           <div class="HiddenBox">Please choose a card on file</div>
           <form id="card_stuff" action="checkout.php" method="POST" enctype="multipart/form-data"><select name="cards" class="cards">
@@ -325,9 +328,13 @@ $sql="select * from ccard where c_id='".$c_id."'";
 
      ?>
       <?php endforeach ?>
+      
       </div>
-  
+     
   </section>
+  
     </div>
+    
   </body>
+  
 </html>

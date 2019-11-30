@@ -176,7 +176,7 @@ function updateCartTotal() {
     }
     total = Math.round(total * 100) / 100
     document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
-    document.getElementById("totalcart").innerHTML=total;
+    document.getElementById("totalcart").value=total;
 }
 
 function quantityChanged(event) {
