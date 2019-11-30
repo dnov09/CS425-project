@@ -36,7 +36,7 @@ $result = mysqli_query($con, $sql);
 <div class="alerter"><?=$_SESSION['username'] ?></div>
 
 <div class="account">
-  <a href="staff-account.php" alt="account" height="80">My Account</a>
+  <a href="staff-edit.php" alt="account" height="80">Edit Product</a>
 </div>
 
 <section class="customers">
