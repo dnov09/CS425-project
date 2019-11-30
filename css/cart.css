@@ -11,7 +11,9 @@
   color: rgb(255, 255, 255);
   margin-bottom: 15px;
 }
-
+.bill{
+  padding-top: 7em;
+}
 .shop-item-image {
   height: 250px;
 }
