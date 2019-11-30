@@ -2,6 +2,10 @@
 
 The goal is to build an online grocery store that operates in the US. The grocery store will use a database backend to store information about products, availability of products in the stock, and customers of the store.
 
+### Group Members
+- Bright(Dumadi) Lesi
+- Devyani Gauri
+- David Ngige
 
 ### 1 Project Timeline
 
@@ -12,8 +16,12 @@ Project has three deliverables:
 
 - [x] Relational Schema
 
-- [ ] Application 
+- [x] Application 
 
+- [x] Video
+
+	[D3 Groceries Demo](https://drive.google.com/open?id=1GeeCev4gQP1DWDz7PgOzFenaTY-5ZRHO)
+ 
 ### Requirements
 
 **Customers should be able to:**
