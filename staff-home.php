@@ -3,7 +3,7 @@ session_start();
 require_once('connection.php');
 $_SESSION['customer']=array();
 
-$sql = "select * from  customer ;";
+$sql = "select username, address, balance  from  customer ;";
 $result = mysqli_query($con, $sql);
 
 ?>
@@ -44,10 +44,10 @@ $result = mysqli_query($con, $sql);
 <?php
 echo "<br>";
 echo "<table border='1'>";
-while ($row = mysqli_fetch_assoc($result)) { // Important line !!! Check summary get row on array ..
+while ($row = mysqli_fetch_assoc($result)) {
     echo "<tr>";
-    foreach ($row as $value) { // I you want you can right this line like this: foreach($row as $value) {
-        echo "<td>" . $value . "</td>"; // I just did not use "htmlspecialchars()" function. 
+    foreach ($row as $value) { 
+        echo "<td>" . $value . "</td>";
     }
     echo "</tr>";
 }
