@@ -200,8 +200,7 @@ $sql="select * from ccard where c_id='".$c_id."'";
                 <h3 class="bill">Billing Address</h3>
                 <label for="fname"><i class="fa fa-user"></i> Full Name</label>
                 <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
-                <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                <input type="text" id="email" name="email" placeholder="john@example.com">
+                
                 <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
                 <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
 
@@ -219,7 +218,7 @@ $sql="select * from ccard where c_id='".$c_id."'";
                 </div>
 
                 <div class="HiddenBox">Please choose a card on file</div>
-                
+
 <br>
                 <label for="cname">Name on Card</label>
                 <input type="text" id="cname" name="cardname" placeholder="John More Doe">
