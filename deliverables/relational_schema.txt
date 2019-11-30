@@ -1,83 +1,77 @@
--- Relational Schema for D3 Groceries
-CREATE TABLE staff(
-    s_id serial PRIMARY KEY,
-    first_name VARCHAR(20) NOT NULL,
-    last_name VARCHAR(20) NOT NULL,
-    address_id serial,
-    job_title VARCHAR(50),
-    salary NUMERIC(8,2),
-
-    FOREIGN KEY (address_id) REFERENCES not_keyword_address
+CREATE TABLE `ccard` (
+ `c_id` int(11) DEFAULT NULL,
+ `cc_expiration` varchar(256) DEFAULT NULL,
+ `cvv` varchar(3) DEFAULT NULL,
+ `address` varchar(100) NOT NULL,
+ `cc_id` int(11) NOT NULL AUTO_INCREMENT,
+ `cc_number` varchar(256) NOT NULL,
+ PRIMARY KEY (`cc_id`),
+ KEY `c_id` (`c_id`),
+ CONSTRAINT `ccard_ibfk_1` FOREIGN KEY (`c_id`) REFERENCES `customer` (`c_id`)
 );
 
-CREATE TABLE customer(
-    c_id serial PRIMARY KEY,
-    first_name VARCHAR(20) NOT NULL,
-    last_name VARCHAR(20) NOT NULL,
-    address_id serial,
-    balance NUMERIC(8,2) CHECK (balance >= 0),
-
-    FOREIGN KEY (address_id) REFERENCES not_keyword_address
-
+CREATE TABLE `customer` (
+ `c_id` int(11) NOT NULL AUTO_INCREMENT,
+ `username` varchar(20) NOT NULL,
+ `first` varchar(100) NOT NULL,
+ `last` varchar(100) NOT NULL,
+ `pword` varchar(100) NOT NULL,
+ `balance` decimal(8,2) DEFAULT NULL CHECK (`balance` >= 0),
+ `address` varchar(100) NOT NULL,
+ PRIMARY KEY (`c_id`)
 );
 
-CREATE TABLE ccard(
-    c_id serial PRIMARY KEY,
-    cc_number VARCHAR(256),
-    cc_expiration VARCHAR(256),
-    cvv VARCHAR(3),
-
-    FOREIGN KEY (c_id) REFERENCES customer
+CREATE TABLE `not_keyword_address` (
+ `address_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+ `street_name` varchar(256) DEFAULT NULL,
+ `city` varchar(256) DEFAULT NULL,
+ `not_keyword_state` varchar(2) DEFAULT NULL,
+ `zipcode` varchar(5) DEFAULT NULL,
+ PRIMARY KEY (`address_id`)
 );
 
-CREATE TABLE product(
-    p_id serial PRIMARY KEY,
-    p_name VARCHAR(256),
-    p_type VARCHAR(256),
-    nutrition VARCHAR(256),
-    alcohol_cont VARCHAR (256),
-    size INT CHECK(size > 0)
+CREATE TABLE `not_keyword_order` (
+ `c_id` int(11) DEFAULT NULL,
+ `p_id` int(11) DEFAULT NULL,
+ `not_keyword_status` varchar(10) DEFAULT NULL,
+ KEY `c_id` (`c_id`),
+ CONSTRAINT `not_keyword_order_ibfk_1` FOREIGN KEY (`c_id`) REFERENCES `customer` (`c_id`)
 );
 
-CREATE TABLE stock(
-    p_id serial PRIMARY KEY,
-    quantity INTEGER CHECK(quantity >= 0),
-
-    FOREIGN KEY (p_id) REFERENCES product
+CREATE TABLE `product` (
+ `p_id` int(11) NOT NULL AUTO_INCREMENT,
+ `p_name` varchar(256) DEFAULT NULL,
+ `p_type` varchar(256) DEFAULT NULL,
+ `p_image` varchar(256) DEFAULT NULL,
+ `nutrition` varchar(256) DEFAULT NULL,
+ `size` int(11) DEFAULT NULL CHECK (`size` > 0),
+ `price` varchar(20) NOT NULL,
+ PRIMARY KEY (`p_id`)
 );
 
-CREATE TABLE warehouse(
-    w_id serial PRIMARY KEY,
-    p_id serial PRIMARY KEY,
-    address_id serial,
-    not_keyword_address VARCHAR(256),
-    quantity INTEGER CHECK(quantity >= 0),
-    -- Foreign key constraints
-    FOREIGN KEY (p_id) REFERENCES product,
-    FOREIGN KEY (address_id) REFERENCES not_keyword_address
-
+CREATE TABLE `staff` (
+ `s_id` int(11) NOT NULL AUTO_INCREMENT,
+ `username` varchar(20) NOT NULL,
+ `pword` varchar(100) NOT NULL,
+ `first_name` varchar(20) NOT NULL,
+ `last_name` varchar(20) NOT NULL,
+ `address` varchar(100) DEFAULT NULL,
+ `job_title` varchar(50) DEFAULT NULL,
+ `salary` decimal(8,2) DEFAULT NULL,
+ PRIMARY KEY (`s_id`)
 );
 
--- order is a keyword in SQL so we add 'not_keyword_'
-CREATE TABLE not_keyword_order(
-    order_id serial PRIMARY KEY,
-    c_id serial,
-    cc_id serial,
-    p_id serial,
-    address_id serial,
-    not_keyword_status VARCHAR(10),
-    CHECK (not_keyword_status in('ordered', 'sent', 'received')),
-    -- Foreign key constraints
-    FOREIGN KEY (c_id) REFERENCES customer,
-    FOREIGN KEY (cc_id) REFERENCES ccard,
-    FOREIGN KEY (address_id) REFERENCES not_keyword_address
+CREATE TABLE `stock` (
+ `p_id` int(11) NOT NULL,
+ `quantity` int(11) DEFAULT NULL CHECK (`quantity` >= 0),
+ PRIMARY KEY (`p_id`),
+ CONSTRAINT `stock_ibfk_1` FOREIGN KEY (`p_id`) REFERENCES `product` (`p_id`)
 );
 
-
-CREATE TABLE not_keyword_address(
-    address_id serial PRIMARY KEY,
-    street_name VARCHAR(256),
-    city VARCHAR(256),
-    not_keyword_state VARCHAR(2),
-    zipcode VARCHAR(5)
+CREATE TABLE `warehouse` (
+ `w_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+ `not_keyword_address` varchar(256) DEFAULT NULL,
+ `quantity` int(11) DEFAULT NULL CHECK (`quantity` >= 0),
+ PRIMARY KEY (`w_id`)
 );
+
