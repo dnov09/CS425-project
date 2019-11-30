@@ -338,5 +338,5 @@ CREATE TABLE `warehouse` (
 
 -- SQL COMMANDS --
 INSERT INTO stock (p_id, quantity)
-SELECT p_id, 50
-FROM product;
+SELECT p_id, 10
+FROM product;T
