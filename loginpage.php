@@ -35,6 +35,8 @@ if(isset($_POST['save'])){
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="css/signin.css" rel="stylesheet" />
+    <title>User Login</title>
+
     <script src="login.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
   </head>

@@ -33,7 +33,7 @@ if(isset($_POST['save'])){
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
+    <title>Sign up</title>
     <link href="css/signin.css" rel="stylesheet" />
     <script src="login.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
