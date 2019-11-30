@@ -13,7 +13,11 @@ input[type="password"] {
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
-
+a{
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-decoration: none;
+}
 button {
   background-color: brown;
   color: white;

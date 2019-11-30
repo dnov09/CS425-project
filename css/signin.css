@@ -13,6 +13,13 @@ input[type="password"] {
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
+
+a{
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-decoration: none;
+}
+
 .alerter{
 
 padding:12px 20px;

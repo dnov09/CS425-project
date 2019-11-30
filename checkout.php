@@ -24,8 +24,8 @@ foreach ($_SESSION['products'] as $bum){
       //echo $row["p_id"];
        array_push($pids,array($row["p_id"],$row["quantity"]));
     }
-    
- 
+
+
  }else{
     echo "Bros chai";
  }
@@ -45,10 +45,10 @@ foreach ($_SESSION['products'] as $bum){
        // echo "<script>alert('".$prod." amount in  cart is more than in stock Please reduce amount');</script>";
        array_push($_SESSION['faulter'],$prod);
        array_push($_SESSION['faultercount'],$lum[1]);
-       
-        
+
+
       }
-      
+
     }
    }
  }
@@ -96,10 +96,10 @@ $sql="select * from product where p_name='".$name."' ";
         array_push($my_array,array($row["p_name"],$row["p_type"],$row["price"],$row["p_image"]));
 
     }
-    
- 
+
+
  }else{
-   
+
     echo "Bros chai";
  }
 }
@@ -140,9 +140,9 @@ $sql="select * from ccard where c_id='".$c_id."'";
     // $_SESSION['message']='Log in Credentials Failed';
     echo "<h2><center>No Card on file Please Add one Below</center></h2>";
     $res=1;
-   
+
  }
- 
+
 ?>
 
 <!DOCTYPE html>
@@ -151,21 +151,21 @@ $sql="select * from ccard where c_id='".$c_id."'";
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Welcome to Firebase Hosting</title>
-    
-    <link rel="stylesheet" href="css/cart.css">
+
+    <link rel="stylesheet" href="css/checkout.css">
     <link href="css/home.css" rel="stylesheet" />
-    
+
     <link href="css/checkout.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   
+
     <script defer src="/__/firebase/7.2.0/firebase-app.js"></script>
-    
+
     <script defer src="/__/firebase/7.2.0/firebase-auth.js"></script>
     <script defer src="/__/firebase/7.2.0/firebase-database.js"></script>
     <script defer src="/__/firebase/7.2.0/firebase-messaging.js"></script>
     <script defer src="/__/firebase/7.2.0/firebase-storage.js"></script>
-   
+
     <script defer src="/__/firebase/init.js"></script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -181,15 +181,15 @@ $sql="select * from ccard where c_id='".$c_id."'";
   </head>
   <body>
 
-  
+
 
     <div class="imgcontainer">
       <a href="home.php"><img src="images/D3_logo.png" alt="Logo" class="Logo" width="150" height="150" align= "left"/></a>
     </div>
-    
-    
+
+
     <section class= "checkout">
-    
+
     <div class="row">
       <div class="col-75">
         <div class="container">
@@ -204,19 +204,7 @@ $sql="select * from ccard where c_id='".$c_id."'";
                 <input type="text" id="email" name="email" placeholder="john@example.com">
                 <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
                 <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
-                <!-- <label for="city"><i class="fa fa-institution"></i> City</label>
-                <input type="text" id="city" name="city" placeholder="New York"> -->
 
-                <!-- <div class="row">
-                  <div class="col-50">
-                    <label for="state">State</label>
-                    <input type="text" id="state" name="state" placeholder="NY">
-                  </div>
-                  <div class="col-50">
-                    <label for="zip">Zip</label>
-                    <input type="text" id="zip" name="zip" placeholder="10001">
-                  </div>
-                </div> -->
               </div>
 
               <div class="col-50">
@@ -229,11 +217,26 @@ $sql="select * from ccard where c_id='".$c_id."'";
                   <i class="fa fa-cc-mastercard" style="color:red;"></i>
                   <i class="fa fa-cc-discover" style="color:orange;"></i>
                 </div>
-                
-                
-     
 
-<br><br>
+                <div class="HiddenBox">Please choose a card on file</div>
+                <form id="card_stuff" action="checkout.php" method="POST" enctype="multipart/form-data"><select name="cards" class="cards">
+
+       <?php
+       for($i=0;$i<count($_SESSION['cards']);$i++){
+       echo "
+       <option value=$i >".$_SESSION['cards'][$i][1]."</option>
+       ";
+      }
+        ?>
+
+      </select>
+
+      <input type="checkbox"  name="sameadr" id="check" > Shipping address same as billing
+      <br><br>
+        <input type="submit" value="Choose card" class= "button" name='populate' form="card_stuff">
+      <br>
+
+<br>
                 <label for="cname">Name on Card</label>
                 <input type="text" id="cname" name="cardname" placeholder="John More Doe">
                 <label for="ccnum">Credit card number</label>
@@ -254,28 +257,11 @@ $sql="select * from ccard where c_id='".$c_id."'";
               </div>
 
             </div>
-            
+
             <input type="submit" value="Checkout" class="btn" name='order'>
           </form>
-          <div class="HiddenBox">Please choose a card on file</div>
-          <form id="card_stuff" action="checkout.php" method="POST" enctype="multipart/form-data"><select name="cards" class="cards">
-          
- <?php
- for($i=0;$i<count($_SESSION['cards']);$i++){
- echo " 
- <option value=$i >".$_SESSION['cards'][$i][1]."</option>
- ";
-}
-  ?>
-  
-</select>
 
-<input type="checkbox"  name="sameadr" id="check" > Shipping address same as billing
-<br><br>
-<input type="submit" value="Choose card"  class="button" name='populate' form="card_stuff">
-<br>
-              
-          
+
 <?php
   if($res==1){
     echo "<script type = 'text/javascript'> document.getElementsByClassName('HiddenBox')[0].style.visibility = 'hidden';
@@ -290,10 +276,10 @@ $sql="select * from ccard where c_id='".$c_id."'";
   $pos=trim($_POST['cards']);
   if(isset($_POST['sameadr'])){
   $add=trim($_POST['sameadr']);
-  echo "<script type = 'text/javascript'>document.getElementById('adr').value = '".$_SESSION['cards'][$pos][4]."'; 
+  echo "<script type = 'text/javascript'>document.getElementById('adr').value = '".$_SESSION['cards'][$pos][4]."';
   document.getElementById('check').checked='true';  </script>";
   }
-  echo "<script type = 'text/javascript'> var date ='".$_SESSION['cards'][$pos][2]."';console.log(date); 
+  echo "<script type = 'text/javascript'> var date ='".$_SESSION['cards'][$pos][2]."';console.log(date);
   document.getElementById('cvv').value = ".$_SESSION['cards'][$pos][3].";
   document.getElementById('expyear').value = date.toString();
   document.getElementById('ccnum').value = '".$_SESSION['cards'][$pos][1]."';
@@ -311,9 +297,9 @@ $sql="select * from ccard where c_id='".$c_id."'";
 <section class="products">
   <div class="row">
   <?php foreach ($_SESSION[$_SESSION['username']] as $num) : ?>
-   
+
     <?php
-    echo " 
+    echo "
     <div class='column'>
     <div class='card'>
     <img src=$num[3] class='pimage' alt=$num[0] width='50' height='50'></a>
@@ -323,18 +309,18 @@ $sql="select * from ccard where c_id='".$c_id."'";
     </div>
     <br>
     </div>
-    
+
     ";
 
      ?>
       <?php endforeach ?>
-      
+
       </div>
-     
+
   </section>
-  
+
     </div>
-    
+
   </body>
-  
+
 </html>
